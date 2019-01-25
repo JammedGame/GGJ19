@@ -9,6 +9,6 @@ public class CameraController : MonoBehaviour
         var player = Game.Player;
         if (player == null) { return; }
 
-        transform.position = player.transform.position;
+        transform.position = player.transform.position - transform.forward * 5;
     }
 }
