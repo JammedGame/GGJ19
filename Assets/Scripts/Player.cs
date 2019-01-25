@@ -18,5 +18,8 @@ public class Player : MonoBehaviour
         transform.position += currentSpeed * Time.deltaTime;
 
         currentSpeed *= Drag;
+
+        if (currentSpeed.magnitude > 0.01f)
+            transform.up = currentSpeed;
     }
 }
