@@ -17,6 +17,11 @@ public class Player : MonoBehaviour
 
     [Header("Current State")]
     public Vector3 currentSpeed;
+    public bool isDead;
+
+    public GameObject explosion;
+
+    public int activeGun = 0;
 
     public void Start()
     {
@@ -50,9 +55,21 @@ public class Player : MonoBehaviour
 
     private int GetGunSelected()
     {
-        if(Input.GetKeyDown("1")) return 0;
-        if(Input.GetKeyDown("2")) return 1;
-        if(Input.GetKeyDown("3")) return 2;
+        if(Input.GetKeyDown("1")) {
+            activeGun = 0; 
+            return 0;
+        }
+        
+        if(Input.GetKeyDown("2")) {
+            activeGun = 1; 
+            return 1;
+        }
+        
+        if(Input.GetKeyDown("3")) {
+            activeGun = 2; 
+            return 2;
+        }
+        
         return -1;
     }
 
@@ -100,8 +117,16 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0) {
-            print("Die");
+        if(currentHealth <= 0 && isDead == false) {
+            isDead = true;
+            Game.Player.enabled = false;
+            var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
+            foreach(var renderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.enabled = false;
+            }
+            GetComponent<CircleCollider2D>().enabled = false;
+            Destroy(explosionDebris, 1);
         }
     }
 }

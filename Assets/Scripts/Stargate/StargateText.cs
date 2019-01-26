@@ -8,20 +8,23 @@ public class StargateText : MonoBehaviour
 {
     void Update()
     {
-        var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
-        if (playerNear)
+        if(Game.Player.isDead == false)
         {
-            if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
+            var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
+            if (playerNear)
             {
-                LoadLevel();
+                if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    LoadLevel();
+                }
             }
-        }
 
-        var targetAlpha = playerNear ? 1 : 0;
-        var text = GetComponent<Text>();
-        var currentColor = text.color;
-        currentColor.a = Mathf.MoveTowards(currentColor.a, targetAlpha, Time.deltaTime * 2);
-        text.color = currentColor;
+            var targetAlpha = playerNear ? 1 : 0;
+            var text = GetComponent<Text>();
+            var currentColor = text.color;
+            currentColor.a = Mathf.MoveTowards(currentColor.a, targetAlpha, Time.deltaTime * 2);
+            text.color = currentColor;
+        }
     }
 
     void LoadLevel()

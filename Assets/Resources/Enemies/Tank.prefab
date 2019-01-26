@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4306137021117258030}
   - component: {fileID: 4276259866299802627}
-  - component: {fileID: 3774233434239441551}
   - component: {fileID: 1717008405729864546}
   - component: {fileID: 6262453607838465940}
+  - component: {fileID: 1882700991719732370}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5684312166492088178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16201697, y: 0.16201697, z: 0.16201697}
+  m_LocalScale: {x: 0.20929353, y: 0.20929353, z: 0.20929353}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f3593907f2849ff18890abdeda1b288, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aee6e4b4e4ed6901d8a2f2fccd4220f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,26 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3774233434239441551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5684312166492088178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bf14eda56690744b33754152be738f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 4840637632356120588, guid: 1e213579d8619f37a863b7540090d5cb,
-    type: 3}
-  currentHealth: 100
-  speed: 2
-  force: 500
-  hitDamage: 10
-  rotSpeed: 400
-  SpawnCount: 3
 --- !u!58 &1717008405729864546
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +97,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.2
+  m_Radius: 2.78
 --- !u!50 &6262453607838465940
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +111,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.5
+  m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -139,3 +119,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1882700991719732370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684312166492088178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bf14eda56690744b33754152be738f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 4840637632356120588, guid: 1e213579d8619f37a863b7540090d5cb,
+    type: 3}
+  currentHealth: 400
+  speed: 2
+  force: 200
+  hitDamage: 20
+  rotSpeed: 400
+  SpawnCount: 1
