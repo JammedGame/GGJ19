@@ -49,6 +49,7 @@ public class ObstacleSpawner : MonoBehaviour
             if (Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
             {
                 obstacle.transform.position = GetSpawnPosition(SpawnRadius);
+                obstacle.SetVelocity();
             }
         }
 	}
