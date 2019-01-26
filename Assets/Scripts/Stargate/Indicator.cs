@@ -28,8 +28,8 @@ public class Indicator : MonoBehaviour
     void RotateToStargate() {
         transform.rotation = Quaternion.RotateTowards
         (
-            transform.rotation, 
-            Quaternion.LookRotation(Vector3.forward, transform.position - stargate.transform.position), 
+            transform.rotation,
+            Quaternion.LookRotation(Vector3.forward, transform.position - stargate.transform.position),
             999f
         );
     }
