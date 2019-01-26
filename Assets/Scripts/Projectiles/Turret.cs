@@ -4,7 +4,7 @@ public class Turret : MonoBehaviour
 {
 	public Projectile ProjectilePrefab;
 	public bool Enabled = true;
-	public bool Alternating = true;
+	public bool Alternating;
 	private int AlternatingCurrent = 0;
 	public float FireRate;
 	public float FireSpeedBonusMultiplier = 0;
@@ -44,7 +44,7 @@ public class Turret : MonoBehaviour
 			);
 			this.AlternatingCurrent = 1;
 		}
-		else if(!this.Alternating || this.AlternatingCurrent == 1) 
+		else if(this.AlternatingCurrent == 1) 
 		{
 			Projectile.Fire
 			(
@@ -53,6 +53,15 @@ public class Turret : MonoBehaviour
 				prefab: ProjectilePrefab
 			);
 			this.AlternatingCurrent = 0;
+		}
+		if(!this.Alternating) 
+		{
+			Projectile.Fire
+			(
+				from: Guns[1].transform.position,
+				dir: Game.MousePosition - transform.position,
+				prefab: ProjectilePrefab
+			);
 		}
 	}
 

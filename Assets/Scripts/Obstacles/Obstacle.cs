@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,7 @@ public class Obstacle : MonoBehaviour
 
     public void Start()
     {
-        var dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        GetComponent<Rigidbody2D>().velocity = dir.normalized * 0.5f;
+        SetVelocity();
         RotationSpeed = UnityEngine.Random.Range(RotationSpeedMin, RotationSpeedMax);
     }
 
@@ -21,4 +21,9 @@ public class Obstacle : MonoBehaviour
     {
         transform.Rotate(Vector3.forward, RotationSpeed * Time.deltaTime);
     }
+
+	public void SetVelocity()
+	{
+        GetComponent<Rigidbody2D>().velocity = Game.RandomDirection() * 0.5f;
+	}
 }
