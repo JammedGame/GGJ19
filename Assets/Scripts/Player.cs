@@ -16,11 +16,7 @@ public class Player : MonoBehaviour
         currentSpeed.x += Speed * Input.GetAxis("Horizontal") * Time.deltaTime;
         currentSpeed.y += Speed * Input.GetAxis("Vertical") * Time.deltaTime;
 
-        transform.position += currentSpeed * Time.deltaTime;
-
-        currentSpeed *= Drag;
-
-        if (currentSpeed.magnitude > 0.01f)
+        if (currentSpeed.magnitude > 0.001f)
         {
             transform.rotation = Quaternion.RotateTowards
             (
@@ -29,5 +25,8 @@ public class Player : MonoBehaviour
                 RotationSpeed * Time.deltaTime
             );
         }
+
+        transform.position += currentSpeed.magnitude * transform.up * Time.deltaTime;
+        currentSpeed *= Drag;
     }
 }
