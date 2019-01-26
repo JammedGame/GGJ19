@@ -16,7 +16,30 @@ public class Player : MonoBehaviour
     public void Update()
     {
         HandleMovement();
+        HandleGuns();
         HandleFire();
+    }
+
+    private void HandleGuns() 
+    {
+        int GunSelected = this.GetGunSelected();
+        if(GunSelected == -1) return;
+        Component[] Turrets = GetComponentsInChildren<Turret>(true);
+        
+        for(int i = 0; i < Turrets.Length; i++)
+        {
+            ((Turret)Turrets[i]).Enabled = false;
+        }
+        ((Turret)Turrets[GunSelected]).Enabled = true;
+        Debug.Log(Turrets[GunSelected].transform.gameObject.name + " Enabled");
+    }
+
+    private int GetGunSelected()
+    {
+        if(Input.GetKeyDown("1")) return 0;
+        if(Input.GetKeyDown("2")) return 1;
+        if(Input.GetKeyDown("3")) return 2;
+        return -1;
     }
 
 	private void HandleFire()

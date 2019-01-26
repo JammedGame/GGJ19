@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2487417432209047723
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
     type: 3}
-  Enabled: 1
+  Enabled: 0
   Alternating: 1
   FireRate: 0.3
   FireSpeedBonusMultiplier: 0
@@ -531,7 +531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8354165462873120018
 Transform:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
     type: 3}
-  Enabled: 1
+  Enabled: 0
   Alternating: 0
   FireRate: 0.1
   FireSpeedBonusMultiplier: 0
