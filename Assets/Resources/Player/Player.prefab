@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
     type: 3}
+  Enabled: 1
   FireRate: 0.25
   FireSpeedBonusMultiplier: 0
   Cooldown: 0
@@ -144,7 +145,6 @@ MonoBehaviour:
   Speed: 23
   Drag: 0.85
   RotationSpeed: 500
-  Turret: {fileID: 5955749927740147896}
   currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!50 &2931828040203166239
 Rigidbody2D:

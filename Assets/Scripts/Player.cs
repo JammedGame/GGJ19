@@ -10,9 +10,6 @@ public class Player : MonoBehaviour
     public float Drag = 0.85f;
     public float RotationSpeed = 700;
 
-    [Header("Shooting")]
-    public Turret Turret;
-
     [Header("Current State")]
     public Vector3 currentSpeed;
 
@@ -26,7 +23,10 @@ public class Player : MonoBehaviour
 	{
         if (Input.GetMouseButton(0))
         {
-            Turret.FireAt(Game.MousePosition);
+            foreach(var turret in GetComponentsInChildren<Turret>())
+            {
+                turret.FireAt(Game.MousePosition);
+            }
         }
 	}
 
