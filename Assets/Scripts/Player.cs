@@ -24,17 +24,18 @@ public class Player : MonoBehaviour
         HandleFire();
     }
 
-    private void HandleGuns() 
+    private void HandleGuns()
     {
         int GunSelected = this.GetGunSelected();
         if(GunSelected == -1) return;
         Component[] Turrets = GetComponentsInChildren<Turret>(true);
-        
+
         for(int i = 0; i < Turrets.Length; i++)
         {
             ((Turret)Turrets[i]).Enabled = false;
         }
         ((Turret)Turrets[GunSelected]).Enabled = true;
+
         Debug.Log(Turrets[GunSelected].transform.gameObject.name + " Enabled");
     }
 
@@ -48,14 +49,17 @@ public class Player : MonoBehaviour
 
 	private void HandleFire()
 	{
-        if (Input.GetMouseButton(0))
+        foreach(var turret in GetComponentsInChildren<Turret>(true))
         {
-            foreach(var turret in GetComponentsInChildren<Turret>(true))
+            if (!turret.Enabled) {continue; }
+
+            // look at target
+            turret.transform.up = Game.MousePosition - turret.transform.position;
+
+            // fire on mouse down.
+            if (Input.GetMouseButton(0))
             {
-                if(turret.Enabled)
-                {
-                    turret.FireAt(Game.MousePosition);
-                }
+                turret.FireAt(Game.MousePosition);
             }
         }
 	}
