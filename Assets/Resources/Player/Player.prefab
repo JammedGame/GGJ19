@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaaed5ae44235c49be30b5d88ec9043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  Speed: 23
   Drag: 0.85
+  RotationSpeed: 500
   currentSpeed: {x: 0, y: 0, z: 0}
