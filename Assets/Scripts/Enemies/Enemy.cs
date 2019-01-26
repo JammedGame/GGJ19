@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public float rotSpeed = .5f;
 
     Transform target;
-    float strength = .5f;
     float str;
     Quaternion targetRotation;
 
@@ -25,10 +25,13 @@ public class Enemy : MonoBehaviour
 
     void MoveAndOrient() {
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-        targetRotation = Quaternion.LookRotation (target.position - transform.position);
-        str = Mathf.Min (str * Time.deltaTime, 1);
-        transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
-
+        str = Mathf.Min (rotSpeed * Time.deltaTime, 1);
+        transform.rotation = Quaternion.RotateTowards
+        (
+            transform.rotation, 
+            Quaternion.LookRotation(Vector3.forward, transform.position - target.position), 
+            str
+        );
     }
 
     void OnTriggerEnter2D(Collider2D other) {
