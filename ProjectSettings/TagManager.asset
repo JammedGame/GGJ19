@@ -10,6 +10,7 @@ TagManager:
   - HeavyCannon
   - RapidCannon
   - Obstacle
+  - Satelite
   layers:
   - Default
   - TransparentFX
