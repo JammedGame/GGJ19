@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sniper : Enemy
 {
     public float approachLimit = 100;
+    public Turret turret;
 
     // Update is called once per frame
     public override void Update()
@@ -17,6 +18,11 @@ public class Sniper : Enemy
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
         }
+        else
+        {
+            turret.FireAt(target.position);
+        }
+
         transform.rotation = Quaternion.RotateTowards
         (
             transform.rotation,

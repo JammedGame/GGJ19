@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float Speed;
     public float Damage = 100;
     public float Force = 1f;
+    public string targetName;
 
     [Header("Game State")]
     public Vector3 StartPoint;
@@ -35,9 +36,10 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if(!string.IsNullOrEmpty(targetName) && other.gameObject.CompareTag(targetName))
         {
-            other.GetComponent<Enemy>().TakeDamage(Damage);
+            other.GetComponent<Enemy>()?.TakeDamage(Damage);
+            other.GetComponent<Player>()?.TakeDamage(Damage);
             Destroy(gameObject);
         }
 

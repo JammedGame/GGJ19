@@ -10,13 +10,7 @@ public class Enemy : MonoBehaviour
     public float hitDamage = 10;
     public float rotSpeed = 400f;
 
-    public Transform target;
-
-    // Start is called before the first frame update
-    public virtual void Start()
-    {
-        target = Game.Player.transform;
-    }
+    public Transform target => Game.Player.transform;
 
     // Update is called once per frame
     public virtual void Update()
