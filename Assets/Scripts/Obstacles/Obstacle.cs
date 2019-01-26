@@ -9,4 +9,16 @@ public class Obstacle : MonoBehaviour
 
     [Header("Game State")]
     public float RotationSpeed;
+
+    public void Start()
+    {
+        var dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        GetComponent<Rigidbody2D>().velocity = dir.normalized * 1.5f;
+        RotationSpeed = UnityEngine.Random.Range(RotationSpeedMin, RotationSpeedMax);
+    }
+
+    public void Update()
+    {
+        transform.Rotate(Vector3.forward, RotationSpeed * Time.deltaTime);
+    }
 }
