@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     [Header("Current State")]
     public Vector3 currentSpeed;
+    public bool isDead;
+
+    public GameObject explosion;
 
     public void Start()
     {
@@ -98,8 +101,16 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0) {
-            print("Die");
+        if(currentHealth <= 0 && isDead == false) {
+            isDead = true;
+            Game.Player.enabled = false;
+            var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
+            foreach(var renderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.enabled = false;
+            }
+            GetComponent<CircleCollider2D>().enabled = false;
+            Destroy(explosionDebris, 1);
         }
     }
 }

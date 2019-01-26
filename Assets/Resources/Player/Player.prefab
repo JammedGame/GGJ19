@@ -1011,6 +1011,8 @@ MonoBehaviour:
   Drag: 0.85
   RotationSpeed: 500
   currentSpeed: {x: 0, y: 0, z: 0}
+  explosion: {fileID: 4840637632356120588, guid: 1e213579d8619f37a863b7540090d5cb,
+    type: 3}
 --- !u!50 &2931828040203166239
 Rigidbody2D:
   serializedVersion: 4
