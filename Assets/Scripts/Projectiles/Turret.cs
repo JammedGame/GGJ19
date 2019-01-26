@@ -4,6 +4,8 @@ public class Turret : MonoBehaviour
 {
 	public Projectile ProjectilePrefab;
 	public bool Enabled = true;
+	public bool Alternating = true;
+	private int AlternatingCurrent = 0;
 	public float FireRate;
 	public float FireSpeedBonusMultiplier = 0;
 
@@ -16,22 +18,44 @@ public class Turret : MonoBehaviour
 		if (Cooldown < 0) { Cooldown = 0; }
 	}
 
-	public virtual Projectile FireAt (Vector3 position)
+	public virtual void FireAt (Vector3 position)
 	{
 		if (Cooldown > 0 || !Enabled)
 		{
-			return null;
+			return;
 		}
 		else
 		{
 			Cooldown = FireRate;
 		}
+		this.transform.up = Game.MousePosition - transform.position;
 
-		return Projectile.Fire
-		(
-			from: transform.position,
-			dir: Game.MousePosition - transform.position,
-			prefab: ProjectilePrefab
-		);
+		Component[] Guns = this.GetGuns();
+
+		if(!this.Alternating || this.AlternatingCurrent == 0) 
+		{
+			Projectile.Fire
+			(
+				from: Guns[0].transform.position,
+				dir: Game.MousePosition - transform.position,
+				prefab: ProjectilePrefab
+			);
+			this.AlternatingCurrent = 1;
+		}
+		else if(!this.Alternating || this.AlternatingCurrent == 1) 
+		{
+			Projectile.Fire
+			(
+				from: Guns[1].transform.position,
+				dir: Game.MousePosition - transform.position,
+				prefab: ProjectilePrefab
+			);
+			this.AlternatingCurrent = 0;
+		}
+	}
+
+	private Component[] GetGuns()
+	{
+		return GetComponentsInChildren<Gun>();
 	}
 }

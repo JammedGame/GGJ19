@@ -23,9 +23,12 @@ public class Player : MonoBehaviour
 	{
         if (Input.GetMouseButton(0))
         {
-            foreach(var turret in GetComponentsInChildren<Turret>())
+            foreach(var turret in GetComponentsInChildren<Turret>(true))
             {
-                turret.FireAt(Game.MousePosition);
+                if(turret.Enabled)
+                {
+                    turret.FireAt(Game.MousePosition);
+                }
             }
         }
 	}
