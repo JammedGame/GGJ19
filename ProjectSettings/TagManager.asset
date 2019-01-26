@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Gun
+  - DefaultCannon
+  - HeavyCannon
+  - RapidCannon
+  - Obstacle
   layers:
   - Default
   - TransparentFX

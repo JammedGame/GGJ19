@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float Speed;
+    public float Force = 1f;
 
     [Header("Game State")]
     public Vector3 StartPoint;
@@ -33,10 +34,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed*Speed * Force);
         }
     }
 }

@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
     public void Start()
     {
         var dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        GetComponent<Rigidbody2D>().velocity = dir.normalized * 1.5f;
+        GetComponent<Rigidbody2D>().velocity = dir.normalized * 0.5f;
         RotationSpeed = UnityEngine.Random.Range(RotationSpeedMin, RotationSpeedMax);
     }
 
