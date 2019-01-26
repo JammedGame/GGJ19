@@ -16,8 +16,6 @@ public class Turret : MonoBehaviour
 	{
 		Cooldown -= Time.deltaTime * (1 + FireSpeedBonusMultiplier);
 		if (Cooldown < 0) { Cooldown = 0; }
-		
-		this.transform.up = Game.MousePosition - transform.position;
 	}
 
 	public virtual void FireAt (Vector3 position)
@@ -33,9 +31,7 @@ public class Turret : MonoBehaviour
 
 		Component[] Guns = this.GetGuns();
 
-		transform.up = position - transform.position;
-
-		if(!this.Alternating || this.AlternatingCurrent == 0) 
+		if(!this.Alternating || this.AlternatingCurrent == 0)
 		{
 			Projectile.Fire
 			(
@@ -47,7 +43,7 @@ public class Turret : MonoBehaviour
 			if (this.Alternating)
 				this.AlternatingCurrent = 1;
 		}
-		else if(this.AlternatingCurrent == 1) 
+		else if(this.AlternatingCurrent == 1)
 		{
 			Projectile.Fire
 			(
@@ -56,6 +52,15 @@ public class Turret : MonoBehaviour
 				prefab: ProjectilePrefab
 			);
 			this.AlternatingCurrent = 0;
+		}
+		if(!this.Alternating)
+		{
+			Projectile.Fire
+			(
+				from: Guns[1].transform.position,
+				dir: Game.MousePosition - transform.position,
+				prefab: ProjectilePrefab
+			);
 		}
 	}
 

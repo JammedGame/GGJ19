@@ -62,6 +62,6 @@ public class ObstacleSpawner : MonoBehaviour
 
 public static class ListExt
 {
-    public static T GetRandom<T>(this List<T> list)
+    public static T GetRandom<T>(this IList<T> list)
         => list[UnityEngine.Random.Range(0, list.Count)];
 }
