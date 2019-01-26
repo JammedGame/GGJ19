@@ -16,6 +16,9 @@ public static class Game
         }
     }
 
+    public static Vector3 PlayerPosition
+        => Player?.transform.position ?? Vector3.zero;
+
     public static Stargate Stargate
     {
         get
@@ -44,4 +47,7 @@ public static class Game
             return new Vector3(ray.origin.x, ray.origin.y, 0);
         }
     }
+
+    public static Vector3 RandomDirection()
+        => new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
 }
