@@ -10,7 +10,21 @@ public class Stargate : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(levelName);
+            switch(SceneManager.GetActiveScene().name)
+            {
+                case "Level1":
+                    SceneManager.LoadScene("Level2");
+                    break;
+                case "Level2":
+                    SceneManager.LoadScene("Level3");
+                    break;
+                case "Level3":
+                    SceneManager.LoadScene("Level4");
+                    break;
+                case "Level4":
+                    SceneManager.LoadScene("Level5");
+                    break;
+            }
         }
     }
 }
