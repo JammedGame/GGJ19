@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  rotSpeed: 2000
+  rotSpeed: 400
 --- !u!58 &1717008405729864546
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.57
+  m_Radius: 0.5
 --- !u!50 &6262453607838465940
 Rigidbody2D:
   serializedVersion: 4

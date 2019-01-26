@@ -5,11 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public float rotSpeed = .5f;
+    public float rotSpeed = 400f;
 
     Transform target;
-    float str;
-    Quaternion targetRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +21,14 @@ public class Enemy : MonoBehaviour
         MoveAndOrient();
     }
 
-    void MoveAndOrient() {
+    void MoveAndOrient()
+    {
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-        str = Mathf.Min (rotSpeed * Time.deltaTime, 1);
         transform.rotation = Quaternion.RotateTowards
         (
-            transform.rotation, 
-            Quaternion.LookRotation(Vector3.forward, transform.position - target.position), 
-            str
+            transform.rotation,
+            Quaternion.LookRotation(Vector3.forward, transform.position - target.position),
+            rotSpeed * Time.deltaTime
         );
     }
 
