@@ -20,6 +20,13 @@ public class Player : MonoBehaviour
         currentSpeed *= Drag;
 
         if (currentSpeed.magnitude > 0.01f)
-            transform.up = currentSpeed;
+        {
+            transform.rotation = Quaternion.RotateTowards
+            (
+                transform.rotation,
+                Quaternion.LookRotation(Vector3.forward, currentSpeed),
+                700 * Time.deltaTime
+            );
+        }
     }
 }
