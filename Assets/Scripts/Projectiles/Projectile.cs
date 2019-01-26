@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float Speed;
+
+    [Header("Game State")]
+    public Vector3 StartPoint;
+    public float TotalDistanceTraveled;
+
+    public static Projectile Fire(Vector3 from, Vector3 to, Projectile prefab)
     {
-        
+        var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, to - from));
+        newProjectile.StartPoint = from;
+        return newProjectile;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        transform.position += transform.up * Speed * Time.deltaTime;
+        TotalDistanceTraveled += Speed * Time.deltaTime;
     }
+
+    public static implicit operator Projectile(string name)
+        => Resources.Load<Projectile>($"Projectiles/{name}");
 }
