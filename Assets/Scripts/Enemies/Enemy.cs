@@ -7,21 +7,21 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float rotSpeed = 400f;
 
-    Transform target;
+    public Transform target;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         target = Game.Player.transform;
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         MoveAndOrient();
     }
 
-    void MoveAndOrient()
+    public virtual void MoveAndOrient()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
         transform.rotation = Quaternion.RotateTowards
