@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 12
+  Force: 2
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!58 &6211716691366654621
