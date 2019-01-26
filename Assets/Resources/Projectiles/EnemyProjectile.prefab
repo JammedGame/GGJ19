@@ -64,7 +64,8 @@ MonoBehaviour:
   Speed: 12
   Damage: 100
   Force: 2
-  targetName: Player
+  isEnemy: 1
+  isObstacle: 0
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!1 &7164954957058409010

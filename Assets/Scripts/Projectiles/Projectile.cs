@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     public float Speed;
     public float Damage = 100;
     public float Force = 1f;
-    public string targetName;
+    public bool isEnemy;
 
     [Header("Game State")]
     public Vector3 StartPoint;
@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     {
         var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, dir));
         newProjectile.StartPoint = from;
+        Debug.Log(newProjectile.isEnemy);
         return newProjectile;
     }
 
@@ -36,15 +37,26 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!string.IsNullOrEmpty(targetName) && other.gameObject.CompareTag(targetName))
+        if(isEnemy)
         {
-            other.GetComponent<Enemy>()?.TakeDamage(Damage);
-            other.GetComponent<Player>()?.TakeDamage(Damage);
-            Destroy(gameObject);
+            if (other.GetComponent<Player>() is Player player)
+            {
+                player.TakeDamage(Damage);
+                Destroy(gameObject);
+            }  
+        }
+        else
+        {
+            if (other.GetComponent<Enemy>() is Enemy enemy)
+            {
+                enemy.TakeDamage(Damage);
+                Destroy(gameObject);
+            }
         }
 
-        if(other.gameObject.CompareTag("Obstacle"))
+        if(other.GetComponent<Obstacle>())
         {
+            print("Hitting an obstacle");
             Destroy(gameObject);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed*Speed * Force);
         }
