@@ -5,22 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Stargate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string levelName;
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(levelName);
         }
     }
 }
