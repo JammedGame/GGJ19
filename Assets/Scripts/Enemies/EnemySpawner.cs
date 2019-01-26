@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
     public float spawnRate;
     Transform moveToTarget;
+    float str;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,23 @@ public class EnemySpawner : MonoBehaviour
         moveToTarget = Game.Player.transform;
     }
 
+    void LateUpdate() {
+        transform.position = Game.Player.transform.position;
+    }
+
     void Spawn() 
     {
-        Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position, Quaternion.identity);
+        Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position, SetRotation());
+    }
+
+    Quaternion SetRotation() {
+        transform.rotation = Quaternion.RotateTowards
+        (
+            transform.rotation, 
+            Quaternion.LookRotation(Vector3.forward, transform.position - Game.Player.transform.position), 
+            999f
+        );
+
+        return transform.rotation;
     }
 }

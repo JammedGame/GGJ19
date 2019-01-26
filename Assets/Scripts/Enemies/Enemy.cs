@@ -34,8 +34,8 @@ public class Enemy : MonoBehaviour
         );
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other == Game.Player) {
+    void OnCollisionEnter2D(Collision2D other) {
+        if(other == Game.Player.GetComponent<Collision2D>()) {
             Destroy(gameObject);
         }
     }
