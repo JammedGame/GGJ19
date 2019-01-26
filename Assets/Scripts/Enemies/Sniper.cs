@@ -10,6 +10,7 @@ public class Sniper : Enemy
     // Update is called once per frame
     public override void Update()
     {
+        if (Game.Paused) { return; }
         MoveAndOrient();
     }
     public override void MoveAndOrient()

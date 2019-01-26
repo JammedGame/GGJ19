@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Game
 {
+    public static bool Paused;
+
     // us Game.Player to get currently active player.
     private static Player _player;
     private static Stargate _stargate;

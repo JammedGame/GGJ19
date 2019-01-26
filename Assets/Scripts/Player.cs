@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        if (Game.Paused) { return; }
+
         HandleMovement();
         HandleGuns();
         HandleFire();
