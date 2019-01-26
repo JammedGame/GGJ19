@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
         for(int i = 0; i < Turrets.Length; i++)
         {
+            if(Turrets[i].transform.gameObject.CompareTag("Satelite")) continue;
             ((Turret)Turrets[i]).Enabled = false;
         }
         ((Turret)Turrets[GunSelected]).Enabled = true;
@@ -54,7 +55,10 @@ public class Player : MonoBehaviour
             if (!turret.Enabled) {continue; }
 
             // look at target
-            turret.transform.up = Game.MousePosition - turret.transform.position;
+            if(!turret.transform.gameObject.CompareTag("Satelite"))
+            {
+                turret.transform.up = Game.MousePosition - turret.transform.position;
+            }
 
             // fire on mouse down.
             if (Input.GetMouseButton(0))

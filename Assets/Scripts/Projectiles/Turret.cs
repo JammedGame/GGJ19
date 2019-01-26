@@ -23,7 +23,6 @@ public class Turret : MonoBehaviour
 		Cooldown -= Time.deltaTime * (1 + FireSpeedBonusMultiplier);
 		if (Cooldown < 0) { Cooldown = 0; }
 	}
-
 	public virtual void FireAt (Vector3 position)
 	{
 		if (Cooldown > 0 || !Enabled)
@@ -36,7 +35,11 @@ public class Turret : MonoBehaviour
 		}
 
 		var direction = position - transform.position;
-		this.transform.up = direction;
+		if(!this.transform.gameObject.CompareTag("Satelite"))
+		{
+			this.transform.up = direction;
+		}
+		else direction = this.transform.up;
 
 		Component[] Guns = GetComponentsInChildren<Gun>();
 
@@ -47,7 +50,7 @@ public class Turret : MonoBehaviour
 				Projectile.Fire
 				(
 					from: gun.transform.position,
-					dir: position - transform.position,
+					dir: direction,
 					prefab: ProjectilePrefab
 				);
 			}
@@ -57,7 +60,7 @@ public class Turret : MonoBehaviour
 			Projectile.Fire
 			(
 				from: Guns[AlternatingCurrent].transform.position,
-				dir: position - transform.position,
+				dir: direction,
 				prefab: ProjectilePrefab
 			);
 
