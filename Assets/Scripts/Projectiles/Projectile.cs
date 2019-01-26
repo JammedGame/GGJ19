@@ -25,4 +25,11 @@ public class Projectile : MonoBehaviour
 
     public static implicit operator Projectile(string name)
         => Resources.Load<Projectile>($"Projectiles/{name}");
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Enemy") {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+    }
 }

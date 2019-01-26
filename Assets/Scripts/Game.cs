@@ -6,12 +6,22 @@ public static class Game
 {
     // us Game.Player to get currently active player.
     private static Player _player;
+    private static Stargate _stargate;
     public static Player Player
     {
         get
         {
             if (_player == null) { _player = GameObject.FindObjectOfType<Player>(); }
             return _player;
+        }
+    }
+
+    public static Stargate Stargate
+    {
+        get
+        {
+            if (_stargate == null) { _stargate = GameObject.FindObjectOfType<Stargate>(); }
+            return _stargate;
         }
     }
 

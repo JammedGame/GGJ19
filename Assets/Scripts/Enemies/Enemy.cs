@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other == Game.Player.GetComponent<Collision2D>()) {
+        if(other.gameObject.tag == "Player") {
             Destroy(gameObject);
         }
     }
