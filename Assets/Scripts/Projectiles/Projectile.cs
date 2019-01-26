@@ -21,6 +21,11 @@ public class Projectile : MonoBehaviour
     {
         transform.position += transform.up * Speed * Time.deltaTime;
         TotalDistanceTraveled += Speed * Time.deltaTime;
+
+        if (TotalDistanceTraveled > 50)
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 
     public static implicit operator Projectile(string name)
