@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4276259866299802627}
   - component: {fileID: 1717008405729864546}
   - component: {fileID: 6262453607838465940}
-  - component: {fileID: 9030538225264227876}
+  - component: {fileID: 1882700991719732370}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Enemy
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9030538225264227876
+--- !u!114 &1882700991719732370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,11 +128,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5684312166492088178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a96f3db073416beaae9b7828b0cb5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 32bf14eda56690744b33754152be738f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 400
   speed: 2
+  force: 200
   hitDamage: 20
   rotSpeed: 400
   SpawnCount: 1

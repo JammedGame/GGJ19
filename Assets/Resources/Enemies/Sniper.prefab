@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad6976f093497d5ba973f65c17e0bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   currentHealth: 200
   speed: 2
+  force: 2
   hitDamage: 10
   rotSpeed: 400
   SpawnCount: 1

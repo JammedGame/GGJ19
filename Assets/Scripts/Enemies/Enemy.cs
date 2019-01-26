@@ -5,8 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float currentHealth = 100;
-    public float speed;
+    public float speed, force;
     public float hitDamage = 10;
+    float hitDamageToTake = 100;
     public float rotSpeed = 400f;
     public int SpawnCount = 1;
 
@@ -32,7 +33,8 @@ public class Enemy : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player") {
             Game.Player.TakeDamage(hitDamage);
-            Destroy(gameObject);
+            Game.Player.GetComponent<Rigidbody2D>().AddForce((Game.Player.transform.position - transform.position).normalized * force);
+            TakeDamage(hitDamageToTake);
         }
     }
 
