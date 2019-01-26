@@ -545,6 +545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5474856176189130275, guid: 41182454ca94405e18070ce331ea8896,
         type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474856176189130275, guid: 41182454ca94405e18070ce331ea8896,
+        type: 3}
       propertyPath: spawnCooldown
       value: 1
       objectReference: {fileID: 0}
@@ -553,6 +558,18 @@ PrefabInstance:
       propertyPath: spawnPeriod
       value: 3.333
       objectReference: {fileID: 0}
+    - target: {fileID: 5474856176189130275, guid: 41182454ca94405e18070ce331ea8896,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 5684312166492088178, guid: 240619740123e8913a904ec908954c97,
+        type: 3}
+    - target: {fileID: 5474856176189130275, guid: 41182454ca94405e18070ce331ea8896,
+        type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 5684312166492088178, guid: dbedb929539198c62b5822be13c4af78,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41182454ca94405e18070ce331ea8896, type: 3}
 --- !u!1001 &6217449312901850034
