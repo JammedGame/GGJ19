@@ -13,7 +13,7 @@ public class Indicator : MonoBehaviour
     void Start()
     {
         cooldown = 0;
-        stargate = Game.Stargate.gameObject;
+        stargate = GameObject.Find("StargateGraphic");
     }
 
     // Update is called once per frame

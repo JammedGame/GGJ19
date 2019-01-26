@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d3c99174fd23977b44224a8dae59af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1213807025}
+  animator: {fileID: 1747728410}
+  cooldown: 5
 --- !u!1 &6217449311699720706
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6217449311699720707}
   - component: {fileID: 6217449311699720704}
-  - component: {fileID: 1213807025}
+  - component: {fileID: 1747728410}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -125,7 +126,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1213807025
+--- !u!95 &1747728410
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ Animator:
   m_GameObject: {fileID: 6217449311699720706}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 646ddaa2b407d5b478f729903175e919, type: 2}
+  m_Controller: {fileID: 9100000, guid: 24de56c5257bfd73bbd65c234390e25e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
