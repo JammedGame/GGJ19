@@ -5,20 +5,24 @@ using UnityEngine;
 public class Indicator : MonoBehaviour
 {
     GameObject stargate;
-    SpriteRenderer spriteRend;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         stargate = Game.Stargate.gameObject;
-        spriteRend = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         RotateToStargate();
+        MoveWithPlayer();
         ShowGraphic();
+    }
+
+    void MoveWithPlayer() {
+        transform.position = Game.Player.transform.position;
     }
 
     void RotateToStargate() {
@@ -31,8 +35,8 @@ public class Indicator : MonoBehaviour
     }
 
     void ShowGraphic() {
-        if(Input.GetKey(KeyCode.Space)) {
-
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            animator.SetTrigger("Fade");
         }
     }
 }
