@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float Speed;
     public float Drag = 0.85f;
+    public float RotationSpeed = 700;
 
     [Header("Current State")]
     public Vector3 currentSpeed;
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
             (
                 transform.rotation,
                 Quaternion.LookRotation(Vector3.forward, currentSpeed),
-                700 * Time.deltaTime
+                RotationSpeed * Time.deltaTime
             );
         }
     }
