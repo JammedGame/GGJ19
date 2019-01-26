@@ -47,6 +47,6 @@ MonoBehaviour:
   - {fileID: 8359890386770653105, guid: c8820ae1e1ef09245a2fcc0fb32b9c10, type: 3}
   - {fileID: 8359890386770653105, guid: 9a94b73e4fdb5414aae009b6a8cd1661, type: 3}
   - {fileID: 8359890386770653105, guid: 64c5b9abd59fc834499f875c5ce52c4a, type: 3}
-  SpawnRadius: 11
+  SpawnRadius: 13
   ObstacleCount: 20
   SpawnedObstacles: []
