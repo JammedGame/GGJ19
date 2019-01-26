@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
 	public void HandleMovement()
     {
+        Time.timeScale = Input.GetKey(KeyCode.LeftShift) ? 0.1f : 1f;
+
         currentSpeed.x += Speed * Input.GetAxis("Horizontal") * Time.deltaTime;
         currentSpeed.y += Speed * Input.GetAxis("Vertical") * Time.deltaTime;
 
