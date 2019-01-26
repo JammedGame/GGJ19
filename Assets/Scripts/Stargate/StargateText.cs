@@ -8,7 +8,7 @@ public class StargateText : MonoBehaviour
 {
     void Update()
     {
-        var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 3f;
+        var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
         if (playerNear)
         {
             if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
