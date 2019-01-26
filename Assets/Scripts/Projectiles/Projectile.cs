@@ -55,7 +55,6 @@ public class Projectile : MonoBehaviour
 
         if(other.GetComponent<Obstacle>())
         {
-            print("Hitting an obstacle");
             Destroy(gameObject);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed*Speed * Force);
         }
