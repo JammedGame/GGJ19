@@ -6,23 +6,34 @@ public class EnemySpawner : MonoBehaviour
 {
     public Transform[] enemySpawnPoints;
     public GameObject enemy;
-    public float spawnRate;
+    public float spawnPeriod = 5;
     Transform moveToTarget;
+
+    [Header("Game State")]
+    public float spawnCooldown;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", 0f, spawnRate);
+        InvokeRepeating("Spawn", 0f, spawnPeriod);
         moveToTarget = Game.Player.transform;
     }
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         transform.position = Game.Player.transform.position;
+        Spawn();
     }
 
     void Spawn()
     {
-        var spawnPos = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
-        Instantiate(enemy, spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
+        spawnCooldown -= Time.deltaTime;
+        if (spawnCooldown <= 0)
+        {
+            var spawnPos = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
+            Instantiate(enemy, spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
+
+            spawnCooldown = spawnPeriod;
+        }
     }
 }
