@@ -26,7 +26,7 @@ public class Sniper : Enemy
         transform.rotation = Quaternion.RotateTowards
         (
             transform.rotation,
-            Quaternion.LookRotation(Vector3.forward, transform.position - target.position),
+            Quaternion.LookRotation(Vector3.forward, target.position - transform.position),
             rotSpeed * Time.deltaTime
         );
     }
