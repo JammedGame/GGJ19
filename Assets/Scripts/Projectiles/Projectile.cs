@@ -5,11 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float Speed;
-<<<<<<< HEAD
     public float Damage = 100;
-=======
     public float Force = 1f;
->>>>>>> d82f882978e21b16dc49c3d3ecdd480c94ce6b29
 
     [Header("Game State")]
     public Vector3 StartPoint;
