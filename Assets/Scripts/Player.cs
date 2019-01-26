@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float RotationSpeed = 700;
 
     [Header("Shooting")]
-    public GameObject FirePoint;
+    public Turret Turret;
 
     [Header("Current State")]
     public Vector3 currentSpeed;
@@ -26,12 +26,7 @@ public class Player : MonoBehaviour
 	{
         if (Input.GetMouseButton(0))
         {
-            Projectile.Fire
-            (
-                from: FirePoint.transform.position,
-                to: Game.MousePosition,
-                prefab: "PlayerProjectile"
-            );
+            Turret.FireAt(Game.MousePosition);
         }
 	}
 

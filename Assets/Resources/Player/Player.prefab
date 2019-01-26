@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8257429903405627906}
+  - component: {fileID: 5955749927740147896}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -30,6 +31,23 @@ Transform:
   m_Father: {fileID: 8461225778334038378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5955749927740147896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519225310736565565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+    type: 3}
+  FireRate: 0.25
+  FireSpeedBonusMultiplier: 0
+  Cooldown: 0
 --- !u!1 &8461225778334038358
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +144,7 @@ MonoBehaviour:
   Speed: 23
   Drag: 0.85
   RotationSpeed: 500
-  FirePoint: {fileID: 519225310736565565}
+  Turret: {fileID: 5955749927740147896}
   currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!50 &2931828040203166239
 Rigidbody2D:

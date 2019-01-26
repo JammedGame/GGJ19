@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         transform.position = Game.Player.transform.position;
     }
 
-    void Spawn() 
+    void Spawn()
     {
         Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position, SetRotation());
     }
@@ -29,8 +29,8 @@ public class EnemySpawner : MonoBehaviour
     Quaternion SetRotation() {
         transform.rotation = Quaternion.RotateTowards
         (
-            transform.rotation, 
-            Quaternion.LookRotation(Vector3.forward, transform.position - Game.Player.transform.position), 
+            transform.rotation,
+            Quaternion.LookRotation(Vector3.forward, transform.position - Game.Player.transform.position),
             999f
         );
 
