@@ -20,7 +20,7 @@ public static class Game
     {
         get
         {
-            if (_stargate == null) { _stargate = GameObject.FindObjectsOfType<StackTraceLogType>(); }
+            if (_stargate == null) { _stargate = GameObject.FindObjectsOfType<Stargate>(); }
             return _stargate;
         }
     }
