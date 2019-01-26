@@ -17,7 +17,6 @@ public class Projectile : MonoBehaviour
     {
         var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, dir));
         newProjectile.StartPoint = from;
-        Debug.Log(newProjectile.isEnemy);
         return newProjectile;
     }
 
@@ -43,7 +42,7 @@ public class Projectile : MonoBehaviour
             {
                 player.TakeDamage(Damage);
                 Destroy(gameObject);
-            }  
+            }
         }
         else
         {

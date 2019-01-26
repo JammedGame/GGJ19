@@ -85,7 +85,8 @@ public class Player : MonoBehaviour
         currentSpeed *= Drag;
     }
 
-    public void TakeDamage(float damage) {
+    public void TakeDamage(float damage)
+    {
         currentHealth -= damage;
         if(currentHealth <= 0) {
             print("Die");
