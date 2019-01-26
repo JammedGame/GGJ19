@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] enemySpawnPoints;
-    public GameObject enemy;
+    public GameObject[] enemies;
     public float spawnPeriod = 5;
     Transform moveToTarget;
 
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         if (spawnCooldown <= 0)
         {
             var spawnPos = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
-            Instantiate(enemy, spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
+            Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
 
             spawnCooldown = spawnPeriod;
         }

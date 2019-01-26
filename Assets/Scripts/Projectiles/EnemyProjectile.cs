@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     public float Speed;
-    public float Damage = 100;
+    public float Damage = 90;
 
     [Header("Game State")]
     public Vector3 StartPoint;
@@ -29,15 +29,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public static implicit operator Projectile(string name)
-        => Resources.Load<Projectile>($"Projectiles/{name}");
+    public static implicit operator EnemyProjectile(string name)
+        => Resources.Load<EnemyProjectile>($"Projectiles/{name}");
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Player")
         {
-            other.GetComponent<Enemy>().TakeDamage(Damage);
             Destroy(gameObject);
+            Game.Player.TakeDamage(Damage);
         }
     }
 }

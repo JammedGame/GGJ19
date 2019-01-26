@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sniper : Enemy
 {
-    
+    public float approachLimit = 100;
 
     // Update is called once per frame
     public override void Update()
@@ -13,7 +13,10 @@ public class Sniper : Enemy
     }
     public override void MoveAndOrient()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+        if(Vector3.Distance(transform.position, target.position) > approachLimit)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+        }
         transform.rotation = Quaternion.RotateTowards
         (
             transform.rotation,

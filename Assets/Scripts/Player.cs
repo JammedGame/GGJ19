@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Stats")]
+    public float maxHealth = 100;
+    public float currentHealth = 100;
+
     [Header("Movement")]
     public float Speed;
     public float Drag = 0.85f;
@@ -52,5 +56,12 @@ public class Player : MonoBehaviour
 
         transform.position += currentSpeed.magnitude * transform.up * Time.deltaTime;
         currentSpeed *= Drag;
+    }
+
+    public void TakeDamage(float damage) {
+        currentHealth -= damage;
+        if(currentHealth <= 0) {
+            print("Die");
+        }
     }
 }

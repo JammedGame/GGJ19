@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float maxHealth = 100;
+    public float currentHealth = 100;
     public float speed;
+    public float hitDamage = 10;
     public float rotSpeed = 400f;
 
     public Transform target;
@@ -34,6 +37,16 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player") {
+            Game.Player.TakeDamage(hitDamage);
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(float damage) 
+    {
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
             Destroy(gameObject);
         }
     }
