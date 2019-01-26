@@ -28,43 +28,34 @@ public class Turret : MonoBehaviour
 		{
 			Cooldown = FireRate;
 		}
-		this.transform.up = Game.MousePosition - transform.position;
 
-		Component[] Guns = this.GetGuns();
+		var direction = position - transform.position;
+		this.transform.up = direction;
 
-		if(!this.Alternating || this.AlternatingCurrent == 0)
+		Component[] Guns = GetComponentsInChildren<Gun>();
+
+		if (!Alternating)
+		{
+			foreach(var gun in Guns)
+			{
+				Projectile.Fire
+				(
+					from: gun.transform.position,
+					dir: position - transform.position,
+					prefab: ProjectilePrefab
+				);
+			}
+		}
+		else
 		{
 			Projectile.Fire
 			(
-				from: Guns[0].transform.position,
-				dir: Game.MousePosition - transform.position,
+				from: Guns[AlternatingCurrent].transform.position,
+				dir: position - transform.position,
 				prefab: ProjectilePrefab
 			);
-			this.AlternatingCurrent = 1;
-		}
-		else if(this.AlternatingCurrent == 1)
-		{
-			Projectile.Fire
-			(
-				from: Guns[1].transform.position,
-				dir: Game.MousePosition - transform.position,
-				prefab: ProjectilePrefab
-			);
-			this.AlternatingCurrent = 0;
-		}
-		if(!this.Alternating)
-		{
-			Projectile.Fire
-			(
-				from: Guns[1].transform.position,
-				dir: Game.MousePosition - transform.position,
-				prefab: ProjectilePrefab
-			);
-		}
-	}
 
-	private Component[] GetGuns()
-	{
-		return GetComponentsInChildren<Gun>();
+			AlternatingCurrent = (AlternatingCurrent + 1) % Guns.Length;
+		}
 	}
 }
