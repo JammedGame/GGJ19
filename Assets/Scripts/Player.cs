@@ -23,15 +23,20 @@ public class Player : MonoBehaviour
 	{
         if (Input.GetMouseButton(0))
         {
-            foreach(var turret in GetComponentsInChildren<Turret>())
+            foreach(var turret in GetComponentsInChildren<Turret>(true))
             {
-                turret.FireAt(Game.MousePosition);
+                if(turret.Enabled)
+                {
+                    turret.FireAt(Game.MousePosition);
+                }
             }
         }
 	}
 
 	public void HandleMovement()
     {
+        Time.timeScale = Input.GetKey(KeyCode.LeftShift) ? 0.1f : 1f;
+
         currentSpeed.x += Speed * Input.GetAxis("Horizontal") * Time.deltaTime;
         currentSpeed.y += Speed * Input.GetAxis("Vertical") * Time.deltaTime;
 
