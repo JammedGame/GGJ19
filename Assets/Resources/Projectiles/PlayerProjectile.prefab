@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 12
-  Damage: 100
+  Damage: 25
   Force: 2
-  targetName: "Enemy\x13"
+  isEnemy: 0
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!58 &6211716691366654621
@@ -66,7 +66,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.39}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.1
 --- !u!1 &7164954957058409010
 GameObject:
   m_ObjectHideFlags: 0

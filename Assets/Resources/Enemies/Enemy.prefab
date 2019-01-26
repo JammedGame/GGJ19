@@ -99,6 +99,7 @@ MonoBehaviour:
   speed: 2
   hitDamage: 10
   rotSpeed: 400
+  SpawnCount: 3
 --- !u!58 &1717008405729864546
 CircleCollider2D:
   m_ObjectHideFlags: 0

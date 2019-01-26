@@ -273,7 +273,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 5684312166492088178, guid: dbedb929539198c62b5822be13c4af78, type: 3}
   - {fileID: 5684312166492088178, guid: 240619740123e8913a904ec908954c97, type: 3}
-  spawnPeriod: 3.333
+  spawnPeriod: 3.5
   spawnCooldown: 1
 --- !u!1 &5474856176270921687
 GameObject:

@@ -30,8 +30,14 @@ public class EnemySpawner : MonoBehaviour
         spawnCooldown -= Time.deltaTime;
         if (spawnCooldown <= 0)
         {
-            var spawnPos = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
-            Instantiate(enemies.GetRandom(), spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
+            var spawnPos = Game.PlayerPosition + Game.RandomDirection() * 13;
+            var enemy = enemies.GetRandom().GetComponent<Enemy>();
+
+            for(int i = 0; i < enemy.SpawnCount; i++)
+            {
+                Instantiate(enemy, spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Game.Player.transform.position));
+                spawnPos += Game.RandomDirection();
+            }
 
             spawnCooldown = spawnPeriod;
         }

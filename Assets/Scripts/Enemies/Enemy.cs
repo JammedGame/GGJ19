@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float hitDamage = 10;
     public float rotSpeed = 400f;
+    public int SpawnCount = 1;
 
     public Transform target => Game.Player.transform;
 
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage) 
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if(currentHealth <= 0)
