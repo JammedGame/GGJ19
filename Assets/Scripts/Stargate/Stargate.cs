@@ -5,12 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class Stargate : MonoBehaviour
 {
+    public bool playerNear;
     public string levelName;
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player")
         {
-            switch(SceneManager.GetActiveScene().name)
+            playerNear = true;
+            if(Input.GetKeyDown(KeyCode.Home))
+            {
+                LoadLevel();
+            }
+        }
+    }
+
+    void OnTriggerLeave2D(Collider2D other) {
+        if(other.gameObject.tag == "Player")
+        {
+            playerNear = false;
+        }
+    }
+
+    void LoadLevel()
+    {
+        switch(SceneManager.GetActiveScene().name)
             {
                 case "Level1":
                     SceneManager.LoadScene("Level2");
@@ -25,6 +43,5 @@ public class Stargate : MonoBehaviour
                     SceneManager.LoadScene("Level5");
                     break;
             }
-        }
     }
 }
