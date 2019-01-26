@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Player : MonoBehaviour
 
     [Header("Current State")]
     public Vector3 currentSpeed;
+
+    public void Start()
+    {
+        SceneManager.LoadScene("PlayerUI", LoadSceneMode.Additive);
+    }
 
     public void Update()
     {
