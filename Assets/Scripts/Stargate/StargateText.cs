@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StargateText : MonoBehaviour
 {
-
-    // Update is called once per frame
     void Update()
     {
-        ShowText();
-    }
-
-    void ShowText()
-    {
-        var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 1f;
-        if(playerNear)
+        var playerNear = Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 3f;
+        if (playerNear)
         {
             if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
             {
                 LoadLevel();
             }
+        }
 
-            GetComponent<Animator>().SetTrigger("ShowText");
-        }
-        else
-        {
-            GetComponent<Animator>().SetTrigger("HideText");
-        }
+        var targetAlpha = playerNear ? 1 : 0;
+        var text = GetComponent<Text>();
+        var currentColor = text.color;
+        currentColor.a = Mathf.MoveTowards(currentColor.a, targetAlpha, Time.deltaTime * 2);
+        text.color = currentColor;
     }
 
     void LoadLevel()
