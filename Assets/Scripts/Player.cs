@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Player : MonoBehaviour
 
     [Header("Current State")]
     public Vector3 currentSpeed;
+
+    public void Start()
+    {
+        SceneManager.LoadScene("PlayerUI", LoadSceneMode.Additive);
+    }
 
     public void Update()
     {
@@ -32,6 +38,7 @@ public class Player : MonoBehaviour
 
         for(int i = 0; i < Turrets.Length; i++)
         {
+            if(Turrets[i].transform.gameObject.CompareTag("Satelite")) continue;
             ((Turret)Turrets[i]).Enabled = false;
         }
         ((Turret)Turrets[GunSelected]).Enabled = true;
@@ -54,7 +61,10 @@ public class Player : MonoBehaviour
             if (!turret.Enabled) {continue; }
 
             // look at target
-            turret.transform.up = Game.MousePosition - turret.transform.position;
+            if(!turret.transform.gameObject.CompareTag("Satelite"))
+            {
+                turret.transform.up = Game.MousePosition - turret.transform.position;
+            }
 
             // fire on mouse down.
             if (Input.GetMouseButton(0))

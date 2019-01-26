@@ -61,11 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6676e706e56bdf644995954bebfbea79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12
+  Speed: 8
   Damage: 100
-  Force: 2
+  Force: 20
   isEnemy: 1
-  isObstacle: 0
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!1 &7164954957058409010
