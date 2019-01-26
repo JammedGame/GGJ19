@@ -32,29 +32,6 @@ public class Turret : MonoBehaviour
 		var direction = position - transform.position;
 		this.transform.up = direction;
 
-<<<<<<< HEAD
-		if(!this.Alternating || this.AlternatingCurrent == 0)
-		{
-			Projectile.Fire
-			(
-				from: Guns[0].transform.position,
-				dir: transform.up,
-				prefab: ProjectilePrefab
-			);
-
-			if (this.Alternating)
-				this.AlternatingCurrent = 1;
-		}
-		else if(this.AlternatingCurrent == 1)
-		{
-			Projectile.Fire
-			(
-				from: Guns[1].transform.position,
-				dir: transform.up,
-				prefab: ProjectilePrefab
-			);
-			this.AlternatingCurrent = 0;
-=======
 		Component[] Guns = GetComponentsInChildren<Gun>();
 
 		if (!Alternating)
@@ -68,7 +45,6 @@ public class Turret : MonoBehaviour
 					prefab: ProjectilePrefab
 				);
 			}
->>>>>>> ac5638e6dd4c2056d40e4f6a08ca228fef875412
 		}
 		else
 		{
