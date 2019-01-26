@@ -3,7 +3,13 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
 	public Projectile ProjectilePrefab;
-	public bool Enabled = true;
+
+	public bool Enabled
+	{
+		get { return gameObject.activeInHierarchy; }
+		set { gameObject.SetActive(value); }
+	}
+
 	public bool Alternating;
 	private int AlternatingCurrent = 0;
 	public float FireRate;
