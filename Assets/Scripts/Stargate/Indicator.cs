@@ -7,9 +7,12 @@ public class Indicator : MonoBehaviour
     GameObject stargate;
     public Animator animator;
 
+	public float cooldown;
+
     // Start is called before the first frame update
     void Start()
     {
+        cooldown = 0;
         stargate = Game.Stargate.gameObject;
     }
 
@@ -18,6 +21,7 @@ public class Indicator : MonoBehaviour
     {
         RotateToStargate();
         MoveWithPlayer();
+        Cooldown();
         ShowGraphic();
     }
 
@@ -35,8 +39,20 @@ public class Indicator : MonoBehaviour
     }
 
     void ShowGraphic() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            animator.SetTrigger("Fade");
+        if(cooldown == 0) {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                cooldown = 5f;
+                animator.SetTrigger("Fade");
+            }
+        }
+    }
+
+    void Cooldown() {
+        if(cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+            if (cooldown < 0) { cooldown = 0; }
         }
     }
 }
