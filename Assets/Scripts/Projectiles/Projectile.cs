@@ -10,9 +10,9 @@ public class Projectile : MonoBehaviour
     public Vector3 StartPoint;
     public float TotalDistanceTraveled;
 
-    public static Projectile Fire(Vector3 from, Vector3 to, Projectile prefab)
+    public static Projectile Fire(Vector3 from, Vector3 dir, Projectile prefab)
     {
-        var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, to - from));
+        var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, dir));
         newProjectile.StartPoint = from;
         return newProjectile;
     }

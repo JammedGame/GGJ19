@@ -3,6 +3,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
 	public Projectile ProjectilePrefab;
+	public bool Enabled = true;
 	public float FireRate;
 	public float FireSpeedBonusMultiplier = 0;
 
@@ -15,9 +16,9 @@ public class Turret : MonoBehaviour
 		if (Cooldown < 0) { Cooldown = 0; }
 	}
 
-	public Projectile FireAt (Vector3 position)
+	public virtual Projectile FireAt (Vector3 position)
 	{
-		if (Cooldown > 0)
+		if (Cooldown > 0 || !Enabled)
 		{
 			return null;
 		}
@@ -29,7 +30,7 @@ public class Turret : MonoBehaviour
 		return Projectile.Fire
 		(
 			from: transform.position,
-			to: Game.MousePosition,
+			dir: Game.MousePosition - transform.position,
 			prefab: ProjectilePrefab
 		);
 	}
