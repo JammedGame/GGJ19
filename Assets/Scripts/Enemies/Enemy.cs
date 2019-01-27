@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
         {
             var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
-            Destroy(explosionDebris, 1);
+            Destroy(explosionDebris, 0.8f);
         }
     }
 }

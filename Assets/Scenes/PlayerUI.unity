@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -367,6 +367,16 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5793187720750746602, guid: 689fecba4ae723a4482a19190d6e5f01,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793187720750746602, guid: 689fecba4ae723a4482a19190d6e5f01,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 689fecba4ae723a4482a19190d6e5f01, type: 3}
 --- !u!224 &772077703 stripped
@@ -445,12 +455,12 @@ PrefabInstance:
     - target: {fileID: 7944619939954967514, guid: 228c2c60fc10c1f479ca47670d52d635,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -165
+      value: -159
       objectReference: {fileID: 0}
     - target: {fileID: 7944619939954967514, guid: 228c2c60fc10c1f479ca47670d52d635,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7944619939954967514, guid: 228c2c60fc10c1f479ca47670d52d635,
         type: 3}
@@ -698,7 +708,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 0
+  m_Spacing: -7
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -787,10 +797,10 @@ MonoBehaviour:
   healthBarPrefab: {fileID: 3518547622191465229, guid: 39b0e73a23eb9bd44be591b080fd0076,
     type: 3}
   barPerHealth: 10
-  activeColor: {r: 0.28627452, g: 0.79607844, b: 0.80784315, a: 1}
-  inactiveColor: {r: 0.28627452, g: 0.79607844, b: 0.80784315, a: 0.39215687}
-  lowHealthActiveColor: {r: 0.8396226, g: 0.2732734, b: 0.3308683, a: 1}
-  lowHealthInactiveColor: {r: 0.8396226, g: 0.2732734, b: 0.3308683, a: 0.39215687}
+  HealthActive: {fileID: 21300000, guid: fe4cefd9466dc6945a744d568981ba06, type: 3}
+  HealthInactive: {fileID: 21300000, guid: 6cfa27af48af10b4d806b17302f7ab62, type: 3}
+  LowHealthActive: {fileID: 21300000, guid: 05eec03d818aed240950c834eefcb2eb, type: 3}
+  LowHealthInactive: {fileID: 21300000, guid: 0c11a71f69b11294dae0714871b5a956, type: 3}
 --- !u!1 &6607488104232850084
 GameObject:
   m_ObjectHideFlags: 0

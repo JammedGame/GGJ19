@@ -10,15 +10,15 @@ public class PlayerUI : MonoBehaviour
     public GameObject healthBarPrefab;
     public float barPerHealth = 10f;
 
-    public Color activeColor;
-    public Color inactiveColor;
-    public Color lowHealthActiveColor;
-    public Color lowHealthInactiveColor;
+    public Sprite HealthActive;
+    public Sprite HealthInactive;
+    public Sprite LowHealthActive;
+    public Sprite LowHealthInactive;
 
     private Player playerScript;
     private Image[] healthBars;
     private float maxHealthBarsCount;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +34,19 @@ public class PlayerUI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {  
+    {
         float currentHealthIndex = playerScript.currentHealth / barPerHealth;
-        for(int i = 0; i < maxHealthBarsCount; i++) {
-            if (i < 3) {
-                healthBars[i].color = i < currentHealthIndex ? lowHealthActiveColor : lowHealthInactiveColor;
-            } else {
-                healthBars[i].color = i < currentHealthIndex ? activeColor : inactiveColor;
+        var isLowHealth = currentHealthIndex < 3;
+
+        for(int i = 0; i < maxHealthBarsCount; i++)
+        {
+            if (isLowHealth)
+            {
+                healthBars[i].sprite = i < currentHealthIndex ? LowHealthActive : LowHealthInactive;
+            }
+            else
+            {
+                healthBars[i].sprite = i < currentHealthIndex ? HealthActive : HealthInactive;
             }
         }
     }
