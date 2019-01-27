@@ -40,11 +40,8 @@ public class Indicator : MonoBehaviour
 
     void ShowGraphic() {
         if(cooldown == 0) {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                cooldown = 5f;
-                animator.SetTrigger("Fade");
-            }
+            cooldown = 5f;
+            animator.SetTrigger("Fade");
         }
     }
 
