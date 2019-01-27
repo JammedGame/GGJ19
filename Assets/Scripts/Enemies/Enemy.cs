@@ -51,14 +51,17 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-            Destroy(explosionDebris, 0.8f);
+            Explode();
         }
     }
 
-    void OnDestroy()
+    public void Explode()
     {
+        // spritesheet
+        var explosionVFX = Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(explosionVFX, 0.8f);
+
+        // debris
         foreach(var debree in Debrees.OrderBy(x => Random.Range(0, 100)).Take(DebrisCount))
         {
             var dir = Game.RandomDirection();
@@ -66,5 +69,8 @@ public class Enemy : MonoBehaviour
             var explosionDebris = Instantiate(debree, pos, transform.rotation);
             explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 8);
         }
+
+        // debris
+        Destroy(gameObject);
     }
 }
