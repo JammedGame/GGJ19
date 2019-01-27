@@ -48,9 +48,9 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
     type: 3}
   Alternating: 0
-  FireRate: 0.1
+  FireRate: 0.2
   FireSpeedBonusMultiplier: 0
-  Ammo: 0
+  Ammo: -1
   Cooldown: 0
 --- !u!1 &519225310736565565
 GameObject:
@@ -308,9 +308,9 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
     type: 3}
   Alternating: 0
-  FireRate: 0.1
+  FireRate: 0.2
   FireSpeedBonusMultiplier: 0
-  Ammo: 0
+  Ammo: -1
   Cooldown: 0
 --- !u!1 &1745630602978265781
 GameObject:
