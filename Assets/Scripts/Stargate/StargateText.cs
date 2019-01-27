@@ -23,7 +23,7 @@ public class StargateText : MonoBehaviour
         var playerNear = !Game.Paused && !Game.Player.isDead && Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
         if (playerNear)
         {
-            AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.portal);
+            AudioManager.Instance.audioSrcPortal.PlayOneShot(AudioManager.Instance.portal);
             if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
             {
                 LoadLevel();
