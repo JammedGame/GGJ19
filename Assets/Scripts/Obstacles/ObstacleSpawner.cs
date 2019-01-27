@@ -32,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour
 
 	private Obstacle SpawnNewObstacle()
 	{
-        var range = UnityEngine.Random.Range(3f, SpawnRadius);
+        var range = UnityEngine.Random.Range(3f, 20);
         var newObstacle = Instantiate(GetRandomMeteor(false), GetSpawnPosition(range), Quaternion.identity);
         SpawnedObstacles.Add(newObstacle);
         return newObstacle;
