@@ -12,6 +12,8 @@ public class PlayerUI : MonoBehaviour
 
     public Color activeColor;
     public Color inactiveColor;
+    public Color lowHealthActiveColor;
+    public Color lowHealthInactiveColor;
 
     private Player playerScript;
     private Image[] healthBars;
@@ -35,7 +37,11 @@ public class PlayerUI : MonoBehaviour
     {  
         float currentHealthIndex = playerScript.currentHealth / barPerHealth;
         for(int i = 0; i < maxHealthBarsCount; i++) {
-            healthBars[i].color = i < currentHealthIndex ? activeColor : inactiveColor;
+            if (i < 3) {
+                healthBars[i].color = i < currentHealthIndex ? lowHealthActiveColor : lowHealthInactiveColor;
+            } else {
+                healthBars[i].color = i < currentHealthIndex ? activeColor : inactiveColor;
+            }
         }
     }
 }
