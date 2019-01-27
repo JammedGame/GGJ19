@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         => Resources.Load<Projectile>($"Projectiles/{name}");
 
     void OnCollisionEnter2D(Collision2D other) => OnHit(other.gameObject);
-    void OnTriggerEnter2D(Collision2D other) => OnHit(other.gameObject);
+    void OnTriggerEnter2D(Collider2D other) => OnHit(other.gameObject);
 
     void OnHit(GameObject hitGO)
     {
