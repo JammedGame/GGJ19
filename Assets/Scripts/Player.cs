@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public int activeGun = 0;
 
     private Animator animator;
+    public SpriteRenderer[] propulsion;
 
     public void Start()
     {
@@ -118,7 +119,11 @@ public class Player : MonoBehaviour
         transform.position += currentSpeed.magnitude * transform.up * Time.deltaTime;
         currentSpeed *= Drag;
 
-        animator.SetFloat("Speed", currentSpeed.magnitude);
+        var speed = currentSpeed.magnitude;
+        var propAlpha = speed < 0.5f ? 0 : (speed - 0.5f) / 1.5f;
+
+        foreach(var propRenderer in propulsion)
+            propRenderer.color = new Color(1,1,1, propAlpha);
     }
 
     public void TakeDamage(float damage)
