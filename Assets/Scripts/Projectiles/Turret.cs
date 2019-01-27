@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
 	private int AlternatingCurrent = 0;
 	public float FireRate;
 	public float FireSpeedBonusMultiplier = 0;
+	public int Ammo;
 
 	[Header("Game State")]
 	public float Cooldown;
@@ -25,6 +26,8 @@ public class Turret : MonoBehaviour
 	}
 	public virtual void FireAt (Vector3 position)
 	{
+		if(Ammo == 0) return;
+		if(Ammo != -1) Ammo--;
 		if (Cooldown > 0 || !Enabled)
 		{
 			return;

@@ -23,11 +23,15 @@ public class PowerUp : MonoBehaviour
     {
         if(other.gameObject.tag == "Player" && Game.Player.isDead == false)
         {
-            if(this._Type < 3)
+            if(this._Type == 0)
             {
-                //Game.Player.AddAmmo(this._Type);
+                Game.Player.AddAmmo(1, 50);
             }
-            if(this._Type == 3)
+            else if(this._Type == 2)
+            {
+                Game.Player.AddAmmo(2, 100);
+            }
+            else if(this._Type == 3)
             {
                 Game.Player.Heal();
             }
