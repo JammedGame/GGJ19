@@ -23,6 +23,8 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
+        if (Game.Paused) { return; }
+
         transform.position += transform.up * Speed * Time.deltaTime;
         TotalDistanceTraveled += Speed * Time.deltaTime;
 
