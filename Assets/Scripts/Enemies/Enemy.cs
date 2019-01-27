@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     float hitDamageToTake = 100;
     public float rotSpeed = 400f;
     public int SpawnCount = 1;
+    public int DebrisCount = 3;
     public List<GameObject> Debrees;
 
     public Transform target => Game.Player.transform;
@@ -58,7 +59,7 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy()
     {
-        foreach(var debree in Debrees.OrderBy(x => Random.Range(0, 100)).Take(3))
+        foreach(var debree in Debrees.OrderBy(x => Random.Range(0, 100)).Take(DebrisCount))
         {
             var dir = Game.RandomDirection();
             var pos = transform.position + dir * 0.1f;
