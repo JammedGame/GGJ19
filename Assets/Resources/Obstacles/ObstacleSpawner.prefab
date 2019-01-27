@@ -49,6 +49,6 @@ MonoBehaviour:
   - {fileID: 8359890386770653105, guid: 64c5b9abd59fc834499f875c5ce52c4a, type: 3}
   GoldenMeteor: {fileID: 8359890386770653105, guid: d417574d2d9f9ca40b49e36481480d8c,
     type: 3}
-  GoldenMeteorChance: 0.05
+  GoldenMeteorChance: 0.07
   ObstacleCount: 20
   SpawnedObstacles: []
