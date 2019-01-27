@@ -26,8 +26,6 @@ public class Turret : MonoBehaviour
 	}
 	public virtual void FireAt (Vector3 position)
 	{
-		if(Ammo == 0) return;
-		if(Ammo != -1) Ammo--;
 		if (Cooldown > 0 || !Enabled)
 		{
 			return;
@@ -36,6 +34,9 @@ public class Turret : MonoBehaviour
 		{
 			Cooldown = FireRate;
 		}
+
+		if(Ammo == 0) return;
+		if(Ammo != -1) Ammo--;
 
 		var direction = position - transform.position;
 		if(!this.transform.gameObject.CompareTag("Satelite"))

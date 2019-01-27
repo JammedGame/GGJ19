@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
+        if (Game.Paused) { return; }
+
         transform.position += transform.up * Speed * Time.deltaTime;
         TotalDistanceTraveled += Speed * Time.deltaTime;
 
@@ -36,11 +38,14 @@ public class Projectile : MonoBehaviour
     public static implicit operator Projectile(string name)
         => Resources.Load<Projectile>($"Projectiles/{name}");
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other) => OnHit(other.gameObject);
+    void OnTriggerEnter2D(Collider2D other) => OnHit(other.gameObject);
+
+    void OnHit(GameObject hitGO)
     {
         if(isEnemy)
         {
-            if (other.GetComponent<Player>() is Player player)
+            if (hitGO.GetComponent<Player>() is Player player)
             {
                 player.TakeDamage(Damage);
                 Explode();
@@ -48,19 +53,22 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (other.GetComponent<Enemy>() is Enemy enemy)
+            if (hitGO.GetComponent<Enemy>() is Enemy enemy)
             {
                 enemy.TakeDamage(Damage);
                 Explode();
             }
         }
 
-        if(other.GetComponent<Obstacle>() is Obstacle obstacle)
+        if(hitGO.GetComponent<Obstacle>() is Obstacle obstacle)
         {
-            other.gameObject.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
-            obstacle.TakeDamage(Damage);
             Explode();
+<<<<<<< HEAD
             AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.obstacleHit);
+=======
+            hitGO.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
+            obstacle.TakeDamage(Damage);
+>>>>>>> 46a63e5bd53267d38feb7138d605abc93b9b86a1
         }
     }
 

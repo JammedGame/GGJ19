@@ -24,6 +24,11 @@ public class Obstacle : MonoBehaviour
     public void Update()
     {
         transform.Rotate(Vector3.forward, RotationSpeed * Time.deltaTime);
+
+        // lock to z
+        var position = transform.position;
+        position.z = 0;
+        transform.position = position;
     }
 
 	public void SetVelocity()
@@ -49,6 +54,8 @@ public class Obstacle : MonoBehaviour
         // explode!
         var explosionVFx = GameObject.Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(explosionVFx, 0.8f);
+
+        PowerUp.Spawn(transform.position);
 
         Destroy(gameObject);
     }

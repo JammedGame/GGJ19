@@ -94,6 +94,11 @@ public class Player : MonoBehaviour
             return 2;
         }
 
+        if(Input.GetKeyDown("4")) {
+            activeGun = 3;
+            return 3;
+        }
+
         return -1;
     }
 

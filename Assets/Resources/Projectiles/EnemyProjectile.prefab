@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  Damage: 90
+  Damage: 30
   Force: 20
   isEnemy: 1
   Explosion: {fileID: 4840637632356120588, guid: 3d74451664e8ca14ea82aea5957a8f7a,
