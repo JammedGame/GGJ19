@@ -56,6 +56,7 @@ public static class Game
 
     public static void RestartGame()
     {
+        SavedGameState.Saved = null;
         SceneManager.LoadScene("Level1");
     }
 }

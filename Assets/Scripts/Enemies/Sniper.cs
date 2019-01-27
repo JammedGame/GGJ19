@@ -13,6 +13,7 @@ public class Sniper : Enemy
         if (Game.Paused) { return; }
         MoveAndOrient();
     }
+
     public override void MoveAndOrient()
     {
         if(Vector3.Distance(transform.position, target.position) > approachLimit)

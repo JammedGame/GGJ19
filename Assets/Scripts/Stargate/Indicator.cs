@@ -19,13 +19,16 @@ public class Indicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Game.Paused) { return; }
+
         RotateToStargate();
         MoveWithPlayer();
         Cooldown();
         ShowGraphic();
     }
 
-    void MoveWithPlayer() {
+    void MoveWithPlayer()
+    {
         transform.position = Game.Player.transform.position;
     }
 
@@ -38,14 +41,17 @@ public class Indicator : MonoBehaviour
         );
     }
 
-    void ShowGraphic() {
-        if(cooldown == 0) {
+    void ShowGraphic()
+    {
+        if(cooldown == 0)
+        {
             cooldown = 5f;
             animator.SetTrigger("Fade");
         }
     }
 
-    void Cooldown() {
+    void Cooldown()
+    {
         if(cooldown > 0)
         {
             cooldown -= Time.deltaTime;
