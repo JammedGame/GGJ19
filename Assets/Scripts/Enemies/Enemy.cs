@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float rotSpeed = 400f;
     public int SpawnCount = 1;
     public int DebrisCount = 3;
+    public int PowerUpSpawnChance;
     public List<GameObject> Debrees;
 
     public Transform target => Game.Player.transform;
@@ -70,7 +71,8 @@ public class Enemy : MonoBehaviour
             explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 8);
         }
 
-        PowerUp.Spawn(transform.position);
+        int SpawnPowerUp = Random.Range(0, 100);
+        if(SpawnPowerUp < this.PowerUpSpawnChance) PowerUp.Spawn(transform.position);
 
         // final destroy
         Destroy(gameObject);

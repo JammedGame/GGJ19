@@ -184,6 +184,7 @@ MonoBehaviour:
   rotSpeed: 400
   SpawnCount: 3
   DebrisCount: 2
+  PowerUpSpawnChance: 5
   Debrees:
   - {fileID: 7554492142005639662, guid: af91aaef6322db04db7011585bde34ea, type: 3}
   - {fileID: 8171978923041702399, guid: 65cb754cb4e6f6a45a172083c810b353, type: 3}
