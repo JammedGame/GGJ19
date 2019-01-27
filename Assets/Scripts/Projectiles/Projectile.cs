@@ -35,11 +35,14 @@ public class Projectile : MonoBehaviour
     public static implicit operator Projectile(string name)
         => Resources.Load<Projectile>($"Projectiles/{name}");
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other) => OnHit(other.gameObject);
+    void OnTriggerEnter2D(Collision2D other) => OnHit(other.gameObject);
+
+    void OnHit(GameObject hitGO)
     {
         if(isEnemy)
         {
-            if (other.GetComponent<Player>() is Player player)
+            if (hitGO.GetComponent<Player>() is Player player)
             {
                 player.TakeDamage(Damage);
                 Explode();
@@ -47,18 +50,18 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (other.GetComponent<Enemy>() is Enemy enemy)
+            if (hitGO.GetComponent<Enemy>() is Enemy enemy)
             {
                 enemy.TakeDamage(Damage);
                 Explode();
             }
         }
 
-        if(other.GetComponent<Obstacle>() is Obstacle obstacle)
+        if(hitGO.GetComponent<Obstacle>() is Obstacle obstacle)
         {
-            other.gameObject.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
-            obstacle.TakeDamage(Damage);
             Explode();
+            hitGO.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
+            obstacle.TakeDamage(Damage);
         }
     }
 

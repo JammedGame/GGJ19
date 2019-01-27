@@ -202,6 +202,7 @@ MonoBehaviour:
   Alternating: 0
   FireRate: 5
   FireSpeedBonusMultiplier: 0
+  Ammo: -1
   Cooldown: 0
 --- !u!114 &6046693649732955107
 MonoBehaviour:
