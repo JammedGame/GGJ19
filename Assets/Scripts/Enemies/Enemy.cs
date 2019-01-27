@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour
     {
         if (Game.Paused) { return; }
         MoveAndOrient();
+
+        if (Vector3.Distance(target.position, transform.position) > 40)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     public virtual void MoveAndOrient()

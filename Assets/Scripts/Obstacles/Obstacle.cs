@@ -49,6 +49,20 @@ public class Obstacle : MonoBehaviour
         return true;
     }
 
+    void OnCollisionEnter2D(Collision2D other) => OnHit(other.gameObject);
+    void OnTriggerEnter2D(Collider2D other) => OnHit(other.gameObject);
+
+    void OnHit(GameObject hitGO)
+    {
+        if(hitGO.GetComponent<Projectile>() is Projectile projectile)
+        {
+            projectile.Explode();
+            AudioManager.Instance.audioSrcExplosion.PlayOneShot(AudioManager.Instance.explosion);
+            hitGO.GetComponent<Rigidbody2D>()?.AddForce(transform.up * projectile.Speed*projectile.Speed * projectile.Force);
+            TakeDamage(projectile.Damage);
+        }
+    }
+
     public void Explode()
     {
         // explode!

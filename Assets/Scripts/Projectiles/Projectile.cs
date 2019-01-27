@@ -59,17 +59,9 @@ public class Projectile : MonoBehaviour
                 Explode();
             }
         }
-
-        if(hitGO.GetComponent<Obstacle>() is Obstacle obstacle)
-        {
-            Explode();
-            AudioManager.Instance.audioSrcExplosion.PlayOneShot(AudioManager.Instance.explosion);
-            hitGO.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
-            obstacle.TakeDamage(Damage);
-        }
     }
 
-    void Explode()
+    public void Explode()
     {
         if (Explosion != null)
         {
