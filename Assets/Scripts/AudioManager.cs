@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance {get; set;}
 
-    public AudioSource audioSrc;
+    public AudioSource audioSrcProjectile, audioSrcExplosion, audioSrcPortal;
 
     public AudioClip explosion, laserHeavy, laserHit, laserRapid, obstacleHit, portal, railGun, shipEngine;
 
@@ -20,7 +20,5 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        audioSrc = GetComponent<AudioSource>();
     }
 }

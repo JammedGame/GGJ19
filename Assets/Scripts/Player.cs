@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0 && isDead == false) {
             isDead = true;
-            AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.explosion);
+            AudioManager.Instance.audioSrcExplosion.PlayOneShot(AudioManager.Instance.explosion);
             Game.Player.enabled = false;
             var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
             foreach(var renderer in GetComponentsInChildren<SpriteRenderer>())
