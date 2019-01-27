@@ -55,6 +55,8 @@ public class Obstacle : MonoBehaviour
         var explosionVFx = GameObject.Instantiate(Explosion, transform.position, Quaternion.identity);
         Destroy(explosionVFx, 0.8f);
 
+        PowerUp.Spawn(transform.position);
+
         Destroy(gameObject);
     }
 }
