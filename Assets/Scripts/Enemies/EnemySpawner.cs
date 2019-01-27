@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour
 {
     public Transform[] enemySpawnPoints;
     public GameObject[] enemies;
-    public float spawnPeriod = 5;
     Transform moveToTarget;
 
     [Header("Game State")]
@@ -15,12 +14,13 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", 0f, spawnPeriod);
         moveToTarget = Game.Player.transform;
     }
 
     void LateUpdate()
     {
+        if (Game.Paused) { return; }
+
         transform.position = Game.Player.transform.position;
         Spawn();
     }
