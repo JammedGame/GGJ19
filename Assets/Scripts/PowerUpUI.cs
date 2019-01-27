@@ -10,6 +10,9 @@ public class PowerUpUI : MonoBehaviour
     public Color countInactiveColor;
     // private Image[] powerUps;
     private Player playerScript;
+    public TMPro.TextMeshProUGUI HeavyAmmoText;
+    public TMPro.TextMeshProUGUI RapidAmmoText;
+    public TMPro.TextMeshProUGUI RailAmmoText;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,7 @@ public class PowerUpUI : MonoBehaviour
     void Update()
     {
         setActiveGun();
+        UpdateAmmoDisplay();
     }
 
     void setActiveGun() {
@@ -32,5 +36,11 @@ public class PowerUpUI : MonoBehaviour
             child.GetChild(1).GetComponent<Image>().color = selected ? activeColor : inactiveColor;
             i++;
         }
+    }
+
+    void UpdateAmmoDisplay()
+    {
+        HeavyAmmoText.SetText(playerScript.GetAmmo(1).ToString());
+        RapidAmmoText.SetText(playerScript.GetAmmo(2).ToString());
     }
 }

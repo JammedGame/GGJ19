@@ -147,4 +147,14 @@ public class Player : MonoBehaviour
         this.currentHealth += 50;
         if(this.currentHealth > this.maxHealth) this.currentHealth = this.maxHealth;
     }
+    public void AddAmmo(int Index, int Ammount)
+    {
+        Component[] Turrets = GetComponentsInChildren<Turret>(true);
+        ((Turret)Turrets[Index]).Ammo += Ammount;
+    }
+    public int GetAmmo(int Index)
+    {
+        Component[] Turrets = GetComponentsInChildren<Turret>(true);
+        return ((Turret)Turrets[Index]).Ammo;
+    }
 }
