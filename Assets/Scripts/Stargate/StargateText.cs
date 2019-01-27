@@ -6,21 +6,32 @@ using UnityEngine.UI;
 
 public class StargateText : MonoBehaviour
 {
+    Text[] texts;
+
+    void Start()
+    {
+        texts = GetComponentsInChildren<Text>();
+
+        foreach(var text in texts)
+        {
+            text.color = new Color(1, 1, 1, 0);
+        }
+    }
+
     void Update()
     {
-        if(Game.Player.isDead == false)
+        var playerNear = !Game.Paused && !Game.Player.isDead && Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
+        if (playerNear)
         {
-            var playerNear = !Game.Paused && Vector3.Distance(Game.PlayerPosition, Game.Stargate.transform.position) < 2f;
-            if (playerNear)
+            if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
             {
-                if (Input.GetKeyDown(KeyCode.Home) || Input.GetKeyDown(KeyCode.Space))
-                {
-                    LoadLevel();
-                }
+                LoadLevel();
             }
+        }
 
-            var targetAlpha = playerNear ? 1 : 0;
-            var text = GetComponent<Text>();
+        var targetAlpha = playerNear ? 1 : 0;
+        foreach(var text in texts)
+        {
             var currentColor = text.color;
             currentColor.a = Mathf.MoveTowards(currentColor.a, targetAlpha, Time.deltaTime * 2);
             text.color = currentColor;
