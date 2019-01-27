@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
             explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 8);
         }
 
-        // debris
+        // final destroy
         Destroy(gameObject);
     }
 }
