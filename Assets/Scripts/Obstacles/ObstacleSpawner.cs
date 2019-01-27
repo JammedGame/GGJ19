@@ -6,6 +6,8 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public List<Obstacle> Prefabs;
+    public Obstacle GoldenMeteor;
+    public float GoldenMeteorChance = 0.05f;
     public float SpawnRadius = 12;
     public int ObstacleCount;
 
@@ -32,7 +34,7 @@ public class ObstacleSpawner : MonoBehaviour
 	private Obstacle SpawnNewObstacle()
 	{
         var range = UnityEngine.Random.Range(3f, SpawnRadius);
-        var newObstacle = Instantiate(Prefabs.GetRandom(), GetSpawnPosition(range), Quaternion.identity);
+        var newObstacle = Instantiate(GetRandomMeteor(false), GetSpawnPosition(range), Quaternion.identity);
         SpawnedObstacles.Add(newObstacle);
         return newObstacle;
     }
@@ -44,15 +46,28 @@ public class ObstacleSpawner : MonoBehaviour
             return;
         }
 
-        foreach(var obstacle in SpawnedObstacles)
+		for (int i = 0; i < SpawnedObstacles.Count; i++)
         {
-            if (Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
+			Obstacle obstacle = SpawnedObstacles[i];
+			if (Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
             {
-                obstacle.transform.position = GetSpawnPosition(SpawnRadius);
-                obstacle.SetVelocity();
+                Destroy(obstacle);
+                SpawnedObstacles[i] = Instantiate(GetRandomMeteor(true), GetSpawnPosition(SpawnRadius), Quaternion.identity);;
             }
         }
 	}
+
+    public Obstacle GetRandomMeteor(bool allowGOlden)
+    {
+        if (allowGOlden && UnityEngine.Random.Range(0f, 1f) <= GoldenMeteorChance)
+        {
+            return GoldenMeteor;
+        }
+        else
+        {
+            return Prefabs.GetRandom();
+        }
+    }
 
     public Vector3 GetSpawnPosition(float range)
     {

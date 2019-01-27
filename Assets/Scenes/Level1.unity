@@ -978,6 +978,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7774428623887268186, guid: 438d9d791334c984197167ab55a1db49,
+        type: 3}
+      propertyPath: Prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774428623887268186, guid: 438d9d791334c984197167ab55a1db49,
+        type: 3}
+      propertyPath: Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8359890386770653105, guid: 9a94b73e4fdb5414aae009b6a8cd1661,
+        type: 3}
+    - target: {fileID: 7774428623887268186, guid: 438d9d791334c984197167ab55a1db49,
+        type: 3}
+      propertyPath: Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8359890386770653105, guid: 64c5b9abd59fc834499f875c5ce52c4a,
+        type: 3}
+    - target: {fileID: 7774428623887268186, guid: 438d9d791334c984197167ab55a1db49,
+        type: 3}
+      propertyPath: GoldenMeteor
+      value: 
+      objectReference: {fileID: 8359890386770653105, guid: d417574d2d9f9ca40b49e36481480d8c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438d9d791334c984197167ab55a1db49, type: 3}
 --- !u!1001 &5769147445457358889
