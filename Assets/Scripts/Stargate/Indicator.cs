@@ -19,6 +19,8 @@ public class Indicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Game.Paused) { return; }
+
         RotateToStargate();
         MoveWithPlayer();
         Cooldown();
@@ -38,7 +40,8 @@ public class Indicator : MonoBehaviour
         );
     }
 
-    void ShowGraphic() {
+    void ShowGraphic()
+    {
         if(cooldown == 0) {
             cooldown = 5f;
             animator.SetTrigger("Fade");
