@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     float hitDamageToTake = 100;
     public float rotSpeed = 400f;
     public int SpawnCount = 1;
+    public List<GameObject> Debrees;
 
     public Transform target => Game.Player.transform;
 
@@ -51,6 +52,17 @@ public class Enemy : MonoBehaviour
             var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
             Destroy(explosionDebris, 0.8f);
+        }
+    }
+
+    void OnDestroy()
+    {
+        foreach(var debree in Debrees)
+        {
+            var dir = Game.RandomDirection();
+            var pos = transform.position + dir * 0.1f;
+            var explosionDebris = Instantiate(debree, pos, transform.rotation);
+            explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 5);
         }
     }
 }
