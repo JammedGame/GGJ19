@@ -141,4 +141,10 @@ public class Player : MonoBehaviour
             Destroy(explosionDebris, 1);
         }
     }
+
+    public void Heal()
+    {
+        this.currentHealth += 50;
+        if(this.currentHealth > this.maxHealth) this.currentHealth = this.maxHealth;
+    }
 }
