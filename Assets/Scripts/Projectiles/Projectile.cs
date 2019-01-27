@@ -63,12 +63,9 @@ public class Projectile : MonoBehaviour
         if(hitGO.GetComponent<Obstacle>() is Obstacle obstacle)
         {
             Explode();
-<<<<<<< HEAD
             AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.obstacleHit);
-=======
             hitGO.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
             obstacle.TakeDamage(Damage);
->>>>>>> 46a63e5bd53267d38feb7138d605abc93b9b86a1
         }
     }
 
