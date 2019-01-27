@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4358649891788255853}
   - component: {fileID: 7138411970816593198}
   - component: {fileID: 8359890386770653105}
-  - component: {fileID: 6941270390794431619}
+  - component: {fileID: 5014030795902627224}
   m_Layer: 0
   m_Name: Meteor1
   m_TagString: Obstacle
@@ -115,11 +115,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acf3926d77f09f448dcc54fadf2dd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanBeDestroyed: 0
+  Explosion: {fileID: 0}
+  Health: 300
   RotationSpeedMin: -20
   RotationSpeedMax: 20
   RotationSpeed: 0
---- !u!70 &6941270390794431619
-CapsuleCollider2D:
+--- !u!58 &5014030795902627224
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,5 +135,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.12, y: 3.37}
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 2.05

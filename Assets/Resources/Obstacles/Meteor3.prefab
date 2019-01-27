@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4358649891788255853}
   - component: {fileID: 7138411970816593198}
   - component: {fileID: 8359890386770653105}
-  - component: {fileID: 2871420553512808942}
+  - component: {fileID: 5501986447519475435}
   m_Layer: 0
   m_Name: Meteor3
   m_TagString: Obstacle
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2767263957522870357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.36, z: 0}
-  m_LocalScale: {x: 0.17, y: 0.25248, z: 0.2}
+  m_LocalScale: {x: 0.17, y: 0.1265253, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,11 +115,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acf3926d77f09f448dcc54fadf2dd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanBeDestroyed: 0
+  Explosion: {fileID: 0}
+  Health: 300
   RotationSpeedMin: -20
   RotationSpeedMax: 20
   RotationSpeed: 0
---- !u!70 &2871420553512808942
-CapsuleCollider2D:
+--- !u!58 &5501986447519475435
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,5 +135,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.29, y: 5.12}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 2.14
