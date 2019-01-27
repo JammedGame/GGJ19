@@ -65,6 +65,8 @@ MonoBehaviour:
   Damage: 90
   Force: 20
   isEnemy: 1
+  Explosion: {fileID: 4840637632356120588, guid: 3d74451664e8ca14ea82aea5957a8f7a,
+    type: 3}
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!1 &7164954957058409010

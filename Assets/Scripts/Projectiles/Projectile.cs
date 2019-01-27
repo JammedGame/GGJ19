@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float Damage = 100;
     public float Force = 1f;
     public bool isEnemy;
+    public GameObject Explosion;
 
     [Header("Game State")]
     public Vector3 StartPoint;
@@ -57,6 +58,15 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed*Speed * Force);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (Explosion != null)
+        {
+            var explostionInst = Instantiate(Explosion, transform.position, transform.rotation);
+            GameObject.Destroy(explostionInst, 0.8f);
         }
     }
 }
