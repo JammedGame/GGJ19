@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
             if (other.GetComponent<Player>() is Player player)
             {
                 player.TakeDamage(Damage);
-                Destroy(gameObject);
+                Explode();
             }
         }
         else
@@ -50,23 +50,26 @@ public class Projectile : MonoBehaviour
             if (other.GetComponent<Enemy>() is Enemy enemy)
             {
                 enemy.TakeDamage(Damage);
-                Destroy(gameObject);
+                Explode();
             }
         }
 
-        if(other.GetComponent<Obstacle>())
+        if(other.GetComponent<Obstacle>() is Obstacle obstacle)
         {
-            Destroy(gameObject);
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * Speed*Speed * Force);
+            other.gameObject.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
+            obstacle.TakeDamage(Damage);
+            Explode();
         }
     }
 
-    void OnDestroy()
+    void Explode()
     {
         if (Explosion != null)
         {
             var explostionInst = Instantiate(Explosion, transform.position, transform.rotation);
             GameObject.Destroy(explostionInst, 0.8f);
         }
+
+        Destroy(gameObject);
     }
 }

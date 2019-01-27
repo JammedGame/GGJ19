@@ -115,6 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acf3926d77f09f448dcc54fadf2dd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanBeDestroyed: 1
+  Explosion: {fileID: 4840637632356120588, guid: 1e213579d8619f37a863b7540090d5cb,
+    type: 3}
+  Health: 100
   RotationSpeedMin: -20
   RotationSpeedMax: 20
   RotationSpeed: 0

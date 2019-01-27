@@ -49,7 +49,7 @@ public class ObstacleSpawner : MonoBehaviour
 		for (int i = 0; i < SpawnedObstacles.Count; i++)
         {
 			Obstacle obstacle = SpawnedObstacles[i];
-			if (Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
+			if (obstacle == null || Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
             {
                 Destroy(obstacle);
                 SpawnedObstacles[i] = Instantiate(GetRandomMeteor(true), GetSpawnPosition(SpawnRadius), Quaternion.identity);;
