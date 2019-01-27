@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    
+    public static AudioManager Instance {get; set;}
 
-    // Update is called once per frame
-    void Update()
+    public AudioSource audioSrc;
+
+    public AudioClip explosion, laserHeavy, laserHit, laserRapid, obstacleHit, portal, railGun, shipEngine;
+
+    void Start() 
     {
-        
+        Instance = this;
+        audioSrc = GetComponent<AudioSource>();
     }
 }

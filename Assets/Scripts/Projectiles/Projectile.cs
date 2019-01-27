@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     public static Projectile Fire(Vector3 from, Vector3 dir, Projectile prefab)
     {
         var newProjectile = GameObject.Instantiate(prefab, from, Quaternion.LookRotation(Vector3.forward, dir));
+        AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.laserRapid);
         newProjectile.StartPoint = from;
         return newProjectile;
     }
@@ -59,6 +60,7 @@ public class Projectile : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody2D>()?.AddForce(transform.up * Speed*Speed * Force);
             obstacle.TakeDamage(Damage);
             Explode();
+            AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.obstacleHit);
         }
     }
 
@@ -68,6 +70,7 @@ public class Projectile : MonoBehaviour
         {
             var explostionInst = Instantiate(Explosion, transform.position, transform.rotation);
             GameObject.Destroy(explostionInst, 0.8f);
+            AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.explosion);
         }
 
         Destroy(gameObject);

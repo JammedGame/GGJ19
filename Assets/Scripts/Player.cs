@@ -142,6 +142,15 @@ public class Player : MonoBehaviour
 
         foreach(var propRenderer in propulsion)
             propRenderer.color = new Color(1,1,1, propAlpha);
+        
+        if(speed < 0.5f)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
+        else
+        {
+            GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.shipEngine);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -149,6 +158,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0 && isDead == false) {
             isDead = true;
+            AudioManager.Instance.audioSrc.PlayOneShot(AudioManager.Instance.explosion);
             Game.Player.enabled = false;
             var explosionDebris = Instantiate(explosion, transform.position, transform.rotation);
             foreach(var renderer in GetComponentsInChildren<SpriteRenderer>())
