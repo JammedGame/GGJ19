@@ -13,6 +13,14 @@ public class AudioManager : MonoBehaviour
     void Start() 
     {
         Instance = this;
+
+        DontDestroyOnLoad(this);
+
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
         audioSrc = GetComponent<AudioSource>();
     }
 }
