@@ -27,7 +27,8 @@ public class Indicator : MonoBehaviour
         ShowGraphic();
     }
 
-    void MoveWithPlayer() {
+    void MoveWithPlayer()
+    {
         transform.position = Game.Player.transform.position;
     }
 
@@ -42,13 +43,15 @@ public class Indicator : MonoBehaviour
 
     void ShowGraphic()
     {
-        if(cooldown == 0) {
+        if(cooldown == 0)
+        {
             cooldown = 5f;
             animator.SetTrigger("Fade");
         }
     }
 
-    void Cooldown() {
+    void Cooldown()
+    {
         if(cooldown > 0)
         {
             cooldown -= Time.deltaTime;

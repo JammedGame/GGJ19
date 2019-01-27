@@ -13,6 +13,10 @@ public class TutorialOverlay : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+            Game.Paused = true;
+        }
     }
 
     // Update is called once per frame
