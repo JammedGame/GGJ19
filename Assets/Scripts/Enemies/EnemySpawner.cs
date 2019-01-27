@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Game State")]
     public float spawnCooldown;
+    public float spawnPeriod;
 
     // Start is called before the first frame update
     void Start()
