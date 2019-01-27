@@ -35,6 +35,10 @@ public class PowerUp : MonoBehaviour
             {
                 Game.Player.Heal();
             }
+            else if(this._Type == 4)
+            {
+                Game.Player.AddSatelite();
+            }
             Destroy(gameObject);
         }
     }

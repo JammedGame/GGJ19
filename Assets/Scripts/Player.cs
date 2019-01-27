@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public int activeGun = 0;
 
     private Animator animator;
+    private int Satelites = 0;
     public SpriteRenderer[] propulsion;
 
     public void Start()
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
 
         HandleMovement();
         HandleGuns();
+        UpdateSatelites();
         HandleFire();
     }
 
@@ -57,6 +59,22 @@ public class Player : MonoBehaviour
         ((Turret)Turrets[GunSelected]).Enabled = true;
 
         Debug.Log(Turrets[GunSelected].transform.gameObject.name + " Enabled");
+    }
+
+    private void UpdateSatelites()
+    {
+        Component[] Turrets = GetComponentsInChildren<Turret>(true);
+
+        int SatelitesFound = 0;
+        for(int i = 0; i < Turrets.Length; i++)
+        {
+            if(Turrets[i].transform.gameObject.CompareTag("Satelite"))
+            {
+                bool ToEnable = (SatelitesFound + 1) <= this.Satelites;
+                ((Turret)Turrets[i]).Enabled = ToEnable;
+                SatelitesFound++;
+            }
+        }
     }
 
     private int GetGunSelected()
@@ -156,5 +174,11 @@ public class Player : MonoBehaviour
     {
         Component[] Turrets = GetComponentsInChildren<Turret>(true);
         return ((Turret)Turrets[Index]).Ammo;
+    }
+    public void AddSatelite()
+    {
+        this.Satelites++;
+        if(this.Satelites > 2) this.Satelites = 2;
+        UpdateSatelites();
     }
 }
