@@ -27,9 +27,13 @@ public class PowerUp : MonoBehaviour
             {
                 Game.Player.AddAmmo(1, 50);
             }
-            else if(this._Type == 2)
+            if(this._Type == 1)
             {
                 Game.Player.AddAmmo(2, 100);
+            }
+            else if(this._Type == 2)
+            {
+                Game.Player.AddAmmo(3, 10);
             }
             else if(this._Type == 3)
             {

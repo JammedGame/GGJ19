@@ -42,5 +42,6 @@ public class PowerUpUI : MonoBehaviour
     {
         HeavyAmmoText.SetText(playerScript.GetAmmo(1).ToString());
         RapidAmmoText.SetText(playerScript.GetAmmo(2).ToString());
+        RailAmmoText.SetText(playerScript.GetAmmo(3).ToString());
     }
 }
