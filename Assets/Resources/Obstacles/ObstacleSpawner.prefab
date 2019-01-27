@@ -50,6 +50,5 @@ MonoBehaviour:
   GoldenMeteor: {fileID: 8359890386770653105, guid: d417574d2d9f9ca40b49e36481480d8c,
     type: 3}
   GoldenMeteorChance: 0.05
-  SpawnRadius: 13
   ObstacleCount: 20
   SpawnedObstacles: []
