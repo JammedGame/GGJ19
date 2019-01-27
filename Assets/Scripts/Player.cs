@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        SavedGameState.Apply(this);
+
         SceneManager.LoadScene("PlayerUI", LoadSceneMode.Additive);
     }
 
@@ -56,20 +58,20 @@ public class Player : MonoBehaviour
     private int GetGunSelected()
     {
         if(Input.GetKeyDown("1")) {
-            activeGun = 0; 
+            activeGun = 0;
             return 0;
         }
-        
+
         if(Input.GetKeyDown("2")) {
-            activeGun = 1; 
+            activeGun = 1;
             return 1;
         }
-        
+
         if(Input.GetKeyDown("3")) {
-            activeGun = 2; 
+            activeGun = 2;
             return 2;
         }
-        
+
         return -1;
     }
 

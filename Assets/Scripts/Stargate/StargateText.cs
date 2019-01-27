@@ -29,6 +29,9 @@ public class StargateText : MonoBehaviour
 
     void LoadLevel()
     {
+        // save player state before loading next level,
+        SavedGameState.Save(Game.Player);
+
         switch(SceneManager.GetActiveScene().name)
             {
                 case "Level1":
