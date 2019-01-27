@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4306137021117258030}
   - component: {fileID: 4276259866299802627}
   - component: {fileID: 2847010977219323209}
-  - component: {fileID: 1717008405729864546}
   - component: {fileID: 6262453607838465940}
+  - component: {fileID: 1146614337221038434}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Enemy
@@ -103,24 +103,18 @@ MonoBehaviour:
   hitDamage: 10
   rotSpeed: 400
   SpawnCount: 1
+  DebrisCount: 3
+  Debrees:
+  - {fileID: 8171978923041702399, guid: c8cfed22774b31841857923d769ef141, type: 3}
+  - {fileID: 8171978923041702399, guid: 0596dee7cd8a99c41b8a8ba4ab179b5b, type: 3}
+  - {fileID: 8171978923041702399, guid: 8e367470518d1f2479276b78d8a999c1, type: 3}
+  - {fileID: 8171978923041702399, guid: 9cf5eb7c85dd85546ac198924307a9c5, type: 3}
+  - {fileID: 8171978923041702399, guid: 61adf23557028964f949a8e7f452b0c5, type: 3}
+  - {fileID: 8171978923041702399, guid: 09fbd8515db5f0a4eafb147bf83374d5, type: 3}
+  - {fileID: 8171978923041702399, guid: 41531f02396f2a440afd8604ec864ca8, type: 3}
+  - {fileID: 8171978923041702399, guid: c80db95173c23b84e97844ff1bfc78cc, type: 3}
   approachLimit: 8
   turret: {fileID: 8727493879959571086}
---- !u!58 &1717008405729864546
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5684312166492088178}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.62
 --- !u!50 &6262453607838465940
 Rigidbody2D:
   serializedVersion: 4
@@ -142,6 +136,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &1146614337221038434
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684312166492088178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.73, y: 5.12}
+  m_Direction: 0
 --- !u!1 &8986773391508290731
 GameObject:
   m_ObjectHideFlags: 0
