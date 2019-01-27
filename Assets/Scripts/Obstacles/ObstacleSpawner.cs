@@ -8,7 +8,6 @@ public class ObstacleSpawner : MonoBehaviour
     public List<Obstacle> Prefabs;
     public Obstacle GoldenMeteor;
     public float GoldenMeteorChance = 0.05f;
-    public float SpawnRadius = 12;
     public int ObstacleCount;
 
     [Header("Game State")]
@@ -52,7 +51,7 @@ public class ObstacleSpawner : MonoBehaviour
 			if (obstacle == null || Vector3.Distance(obstacle.transform.position, Game.PlayerPosition) > 20f)
             {
                 Destroy(obstacle);
-                SpawnedObstacles[i] = Instantiate(GetRandomMeteor(true), GetSpawnPosition(SpawnRadius), Quaternion.identity);;
+                SpawnedObstacles[i] = Instantiate(GetRandomMeteor(true), GetSpawnPosition(20), Quaternion.identity);;
             }
         }
 	}

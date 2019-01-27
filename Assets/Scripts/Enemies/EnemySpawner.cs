@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         spawnCooldown -= Time.deltaTime;
         if (spawnCooldown <= 0)
         {
-            var spawnPos = Game.PlayerPosition + Game.RandomDirection() * 13;
+            var spawnPos = Game.PlayerPosition + Game.RandomDirection() * 20;
             var enemy = enemies.GetRandom().GetComponent<Enemy>();
 
             for(int i = 0; i < enemy.SpawnCount; i++)
