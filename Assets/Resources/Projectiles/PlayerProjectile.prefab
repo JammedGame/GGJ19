@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 12
-  Damage: 25
+  Damage: 100
   Force: 2
   isEnemy: 0
+  Explosion: {fileID: 0}
   StartPoint: {x: 0, y: 0, z: 0}
   TotalDistanceTraveled: 0
 --- !u!58 &6211716691366654621

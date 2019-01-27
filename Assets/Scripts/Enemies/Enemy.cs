@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
@@ -57,12 +58,12 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy()
     {
-        foreach(var debree in Debrees)
+        foreach(var debree in Debrees.OrderBy(x => Random.Range(0, 100)).Take(3))
         {
             var dir = Game.RandomDirection();
             var pos = transform.position + dir * 0.1f;
             var explosionDebris = Instantiate(debree, pos, transform.rotation);
-            explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 5);
+            explosionDebris.GetComponent<Rigidbody2D>().AddForce(dir * 8);
         }
     }
 }
