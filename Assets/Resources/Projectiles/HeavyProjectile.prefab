@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 12
-  Damage: 100
+  Damage: 200
   Force: 2
   isEnemy: 0
   Explosion: {fileID: 4840637632356120588, guid: 3d74451664e8ca14ea82aea5957a8f7a,

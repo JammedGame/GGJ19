@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
     type: 3}
   Alternating: 0
   FireRate: 0.2
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
     type: 3}
   Alternating: 1
   FireRate: 0.2
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
     type: 3}
   Alternating: 0
   FireRate: 0.2
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: 0e1fce0dded7ac14eb14da2afce575e1,
     type: 3}
   Alternating: 1
   FireRate: 0.3
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
     type: 3}
   Alternating: 0
   FireRate: 0.1
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46f1c8f54a694b44b30aab0f3021bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 2405519552864384273, guid: b4a9b8fb27feb85489b37c4d0c9af746,
+  ProjectilePrefab: {fileID: 2405519552864384273, guid: f19e4424e046f6a408b377df6bf291e5,
     type: 3}
   Alternating: 0
   FireRate: 0.5

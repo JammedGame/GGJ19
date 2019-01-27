@@ -422,41 +422,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3080745520673648015, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Main
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005827591254838844, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
-        type: 3}
-    - target: {fileID: 5955749927740147896, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
-        type: 3}
-    - target: {fileID: 7280172300954799681, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
-        type: 3}
-    - target: {fileID: 3362160814838473971, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 2405519552864384273, guid: 0e1fce0dded7ac14eb14da2afce575e1,
-        type: 3}
-    - target: {fileID: 7094664434008320733, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 2405519552864384273, guid: bb88fe7d844c10b4c90d8d82681ff91e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6efe785e127d2a74d939900dd0e4c1a2, type: 3}
 --- !u!4 &1747988119 stripped
