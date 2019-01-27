@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public static class Game
 {
     public static bool Paused;
+    public static bool YouWon;
 
     // us Game.Player to get currently active player.
     private static Player _player;

@@ -53,10 +53,8 @@ public class StargateText : MonoBehaviour
                     SceneManager.LoadScene("Level3");
                     break;
                 case "Level3":
-                    SceneManager.LoadScene("Level4");
-                    break;
-                case "Level4":
-                    SceneManager.LoadScene("Level5");
+                    Game.YouWon = true;
+                    Game.Paused = true;
                     break;
             }
     }
