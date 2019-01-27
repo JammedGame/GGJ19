@@ -23,11 +23,14 @@ public class Player : MonoBehaviour
 
     public int activeGun = 0;
 
+    private Animator animator;
+
     public void Start()
     {
         SavedGameState.Apply(this);
 
         SceneManager.LoadScene("PlayerUI", LoadSceneMode.Additive);
+        animator = GetComponent<Animator>();
     }
 
     public void Update()
@@ -114,6 +117,8 @@ public class Player : MonoBehaviour
 
         transform.position += currentSpeed.magnitude * transform.up * Time.deltaTime;
         currentSpeed *= Drag;
+
+        animator.SetFloat("Speed", currentSpeed.magnitude);
     }
 
     public void TakeDamage(float damage)

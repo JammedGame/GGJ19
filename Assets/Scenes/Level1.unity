@@ -480,11 +480,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8461225778334038358, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 8461225778334038378, guid: 6efe785e127d2a74d939900dd0e4c1a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,37 +535,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2931828040203166239, guid: 6efe785e127d2a74d939900dd0e4c1a2,
+    - target: {fileID: 3080745520673648015, guid: 6efe785e127d2a74d939900dd0e4c1a2,
         type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
+      propertyPath: m_Name
+      value: Main
       objectReference: {fileID: 0}
-    - target: {fileID: 2931828040203166239, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931828040203166239, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806539486636836250, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8257429903405627906, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461225778334038357, guid: 6efe785e127d2a74d939900dd0e4c1a2,
-        type: 3}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 4840637632356120588, guid: 1e213579d8619f37a863b7540090d5cb,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6efe785e127d2a74d939900dd0e4c1a2, type: 3}
 --- !u!4 &1747988119 stripped
