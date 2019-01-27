@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
+    public GameObject Reference;
+
     void LateUpdate()
     {
         var aspectRatio = Screen.width / (float)Screen.height;
         var scale = 2 * Game.Camera.orthographicSize * Mathf.Max(aspectRatio, 1);
         var position = Game.PlayerPosition + Vector3.forward;
+        if(Game.Player != null)
+        {
+            position = Game.PlayerPosition + Vector3.forward;
+        }
+        else
+        {
+            position = Reference.transform.position;
+        }
         var material = GetComponent<MeshRenderer>().material;
         var texture = material.mainTexture;
 
